@@ -1,6 +1,6 @@
+import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 import type { TUser } from "./user.type";
-import bcrypt from "bcrypt";
 import { validateEmail, validateName } from "./user.validation";
 
 const userSchema = new mongoose.Schema<TUser>({
