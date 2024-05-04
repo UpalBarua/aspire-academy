@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Lock, Mail } from "lucide-react";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -34,9 +35,19 @@ export function LoginForm() {
     },
   });
 
-  function onSubmit(values: LoginForm) {
-    console.log(values);
-  }
+  const onSubmit = async ({ email, password }: LoginForm) => {
+    try {
+      await signIn("credentials", {
+        email,
+        password,
+      });
+
+      alert("Logged in");
+    } catch (error) {
+      console.log(error);
+      alert("Something went wrong");
+    }
+  };
 
   return (
     <Form {...form}>

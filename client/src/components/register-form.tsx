@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -10,27 +10,20 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Lock, Mail, Repeat2, UserRound } from "lucide-react";
+import { signIn } from "next-auth/react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
 
 const registerFormSchema = z.object({
+  name: z.string(),
   email: z.string().email({
     message: "Email must be valid.",
   }),
   password: z.string(),
   password2: z.string(),
-  userType: z.string(),
 });
 
 type RegisterForm = z.infer<typeof registerFormSchema>;
@@ -39,23 +32,61 @@ export function RegisterForm() {
   const form = useForm<RegisterForm>({
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
+      name: "",
       email: "",
       password: "",
       password2: "",
-      userType: "",
     },
   });
 
-  function onSubmit(values: RegisterForm) {
-    console.log(values);
-  }
+  const onSubmit = async ({ name, email, password }: RegisterForm) => {
+    try {
+      const res = await fetch("http://localhost:8080/api/users/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      }).then((res) => res.json());
+
+      if (!res.success) {
+        throw new Error("Something went wrong");
+      }
+
+      await signIn("credentials", {
+        email,
+        password,
+      });
+
+      alert("Registered");
+    } catch (error) {
+      console.log(error);
+      alert("Something went wrong");
+    }
+  };
 
   return (
     <Form {...form}>
-      <h2 className="pb-10 text-2xl font-medium tracking-tight">
+      <h2 className="pb-10 text-3xl font-bold tracking-tight">
         User Registration
       </h2>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="flex items-center gap-x-1">
+                <UserRound className="h-4 w-4" />
+                <span>User Name</span>
+              </FormLabel>
+              <FormControl>
+                <Input placeholder="Your name" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="email"
@@ -74,33 +105,6 @@ export function RegisterForm() {
         />
         <FormField
           control={form.control}
-          name="userType"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="flex items-center gap-x-2">
-                <UserRound className="h-4 w-4" />
-                <span>User Type</span>
-              </FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a verified email to display" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  {["Student", "Teacher", "Staff"].map((type) => (
-                    <SelectItem key={type} value={type}>
-                      {type}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="password"
           render={({ field }) => (
             <FormItem>
@@ -109,11 +113,7 @@ export function RegisterForm() {
                 <span>Password</span>
               </FormLabel>
               <FormControl>
-                <Input
-                  placeholder="strong password"
-                  type="password"
-                  {...field}
-                />
+                <Input placeholder="********" type="password" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -129,18 +129,18 @@ export function RegisterForm() {
                 <span>Repeat Password</span>
               </FormLabel>
               <FormControl>
-                <Input
-                  placeholder="strong password"
-                  type="password"
-                  {...field}
-                />
+                <Input placeholder="********" type="password" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <div className="space-y-2.5 pt-6">
-          <Button className="w-full" type="submit">
+        <div className="space-y-2.5 pt-4">
+          <Button
+            className="w-full"
+            type="submit"
+            disabled={form.formState.isLoading}
+          >
             Register
           </Button>
           <Link
