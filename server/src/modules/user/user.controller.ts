@@ -32,7 +32,7 @@ export const registerUser = async (
     }
 
     const createdUser = await createNewUser(newUser);
-    const { password, ...sanitizedUser } = createdUser;
+    const { password, ...sanitizedUser } = createdUser!;
 
     res.status(201).json({
       success: true,
