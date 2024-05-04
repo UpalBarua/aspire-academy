@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import { NextFunction, Request, Response } from "express";
-import { getUserByEmail, insertNewUser } from "./user.service";
+import { createNewUser, getUserByEmail } from "./user.service";
 import { newUserSchema } from "./user.validation";
 
 export const registerUser = async (
@@ -31,12 +31,13 @@ export const registerUser = async (
       });
     }
 
-    const createdUser = await insertNewUser(newUser);
+    const createdUser = await createNewUser(newUser);
+    const { password, ...sanitizedUser } = createdUser;
 
     res.status(201).json({
       success: true,
       message: "Registered new user successfully.",
-      data: createdUser,
+      data: sanitizedUser,
     });
   } catch (error) {
     next(error);
@@ -86,10 +87,12 @@ export const loginUser = async (
       });
     }
 
+    const { password, ...sanitizedUser } = foundUser;
+
     res.status(201).json({
       success: true,
       message: "Logged in user successfully.",
-      data: foundUser,
+      data: sanitizedUser,
     });
   } catch (error) {
     next(error);
