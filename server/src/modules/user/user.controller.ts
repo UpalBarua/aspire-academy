@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import { NextFunction, Request, Response } from "express";
-import User from "./user.model";
+import { getUserByEmail, insertNewUser } from "./user.service";
 import { newUserSchema } from "./user.validation";
 
 export const registerUser = async (
@@ -21,7 +21,7 @@ export const registerUser = async (
       });
     }
 
-    const existingUser = await User.findOne({ email: newUser.email });
+    const existingUser = await getUserByEmail(newUser.email);
 
     if (existingUser) {
       return res.status(400).json({
@@ -31,8 +31,7 @@ export const registerUser = async (
       });
     }
 
-    const createdUser = new User(newUser);
-    await createdUser.save();
+    const createdUser = await insertNewUser(newUser);
 
     res.status(201).json({
       success: true,
@@ -64,7 +63,7 @@ export const loginUser = async (
       });
     }
 
-    const foundUser = await User.findOne({ email: credentials.email });
+    const foundUser = await getUserByEmail(credentials.email);
 
     if (!foundUser) {
       return res.status(401).json({
