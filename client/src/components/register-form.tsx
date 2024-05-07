@@ -16,6 +16,13 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
+>>>>>>> Stashed changes
 
 const registerFormSchema = z.object({
   name: z.string(),
@@ -25,6 +32,12 @@ const registerFormSchema = z.object({
   password: z.string(),
   password2: z.string(),
 });
+=======
+import { registerFormSchema } from "@/schemas";
+>>>>>>> Stashed changes
+=======
+import { registerFormSchema } from "@/schemas";
+>>>>>>> Stashed changes
 
 type RegisterForm = z.infer<typeof registerFormSchema>;
 

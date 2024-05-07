@@ -10,6 +10,8 @@ import {
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
+import { signOut } from "next-auth/react";
+
 export function ThemeToggle() {
   const { setTheme } = useTheme();
 
@@ -33,6 +35,8 @@ export function ThemeToggle() {
           System
         </DropdownMenuItem>
       </DropdownMenuContent>
+
+      <button onClick={() => signOut()}>signout</button>
     </DropdownMenu>
   );
 }
