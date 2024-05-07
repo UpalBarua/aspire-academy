@@ -10,34 +10,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { registerFormSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Lock, Mail, Repeat2, UserRound } from "lucide-react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
->>>>>>> Stashed changes
-
-const registerFormSchema = z.object({
-  name: z.string(),
-  email: z.string().email({
-    message: "Email must be valid.",
-  }),
-  password: z.string(),
-  password2: z.string(),
-});
-=======
-import { registerFormSchema } from "@/schemas";
->>>>>>> Stashed changes
-=======
-import { registerFormSchema } from "@/schemas";
->>>>>>> Stashed changes
 
 type RegisterForm = z.infer<typeof registerFormSchema>;
 

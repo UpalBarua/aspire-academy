@@ -10,7 +10,7 @@ export default function AuthLayout({ children }: Readonly<AuthLayoutProps>) {
     <section className="mx-auto min-h-screen max-w-7xl lg:relative">
       <div
         className="mx-auto flex h-full w-[min(100%,24rem)] flex-col items-center justify-center bg-background px-4 py-8 
-        lg:fixed lg:left-0 lg:top-0 lg:min-w-[28rem] lg:items-start lg:px-10"
+        shadow-2xl lg:fixed lg:left-0 lg:top-0 lg:min-w-[28rem] lg:items-start lg:px-10"
       >
         <Image
           src="/images/logo.png"
@@ -26,7 +26,7 @@ export default function AuthLayout({ children }: Readonly<AuthLayoutProps>) {
         className="fixed left-[28rem] top-0 hidden 
         h-full w-[calc(100%-28rem)] bg-[url('/images/auth-img.jpg')] bg-cover bg-center lg:block"
       >
-        <div className="absolute inset-0 -mt-10 flex flex-col items-center justify-center gap-2 bg-background/60">
+        <div className="absolute inset-0 -mt-10 flex flex-col items-center justify-center gap-2 bg-background/80">
           <Image
             src="/images/logo.png"
             alt="au logo"
