@@ -1,14 +1,14 @@
+import { auth } from "@/auth";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { auth } from "@/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aspire Universtiy",
+  title: "Aspire Academy",
 };
 
 export default async function RootLayout({
