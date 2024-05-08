@@ -50,7 +50,7 @@ export default function Course() {
         </div>
         <div className="space-y-3">
           <h3 className="text-xl font-medium tracking-tight">
-            What you'll learn
+            What you&apos;ll learn
           </h3>
           <div className="flex items-center gap-x-4 rounded-xl border p-6">
             <ul className="grid grid-cols-2 gap-2.5">
