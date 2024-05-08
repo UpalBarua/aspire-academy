@@ -1,1 +1,1 @@
-# Aspire University 🏫
+# Aspire Academy 🏫
