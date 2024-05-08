@@ -1,3 +1,4 @@
+import Counter from "@/components/ui/Counter";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export default async function Home() {
@@ -5,6 +6,8 @@ export default async function Home() {
     <div>
       <h1 className="p-4 text-2xl font-medium">Aspire Academy</h1>
       <ThemeToggle />
+      <Counter/>
+     
     </div>
   );
 }
