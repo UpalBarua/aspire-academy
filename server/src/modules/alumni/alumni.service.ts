@@ -10,8 +10,13 @@ const getAlumniDb = async () => {
   const result = await alumniModel.find();
   return result;
 };
+const deleteAlumniDb = async (id: any) => {
+  const result = await alumniModel.deleteOne({ _id: id });
+  return result;
+};
 
 export const alumniService = {
   createAlumniDb,
   getAlumniDb,
+  deleteAlumniDb,
 };

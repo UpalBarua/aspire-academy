@@ -29,8 +29,23 @@ const getMentor = async (req: Request, res: Response) => {
     console.log(error);
   }
 };
+const deleteMentor = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const result = await mentorService.deleteMentorDb(id);
+
+    res.status(200).json({
+      success: true,
+      message: "mentor delete successfully",
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const mentorController = {
   createMentor,
   getMentor,
+  deleteMentor,
 };
