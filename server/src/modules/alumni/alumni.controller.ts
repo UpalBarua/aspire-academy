@@ -29,7 +29,23 @@ const getAlumni = async (req: Request, res: Response) => {
   }
 };
 
+const deleteAlumni = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const result = await alumniService.deleteAlumniDb(id);
+
+    res.status(200).json({
+      success: true,
+      message: "mentor delete successfully",
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const alumniController = {
   createAlumni,
   getAlumni,
+  deleteAlumni,
 };

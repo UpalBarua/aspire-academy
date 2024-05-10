@@ -2,6 +2,9 @@ import { Schema, model } from "mongoose";
 import { TAlumni } from "./alumni.type";
 
 const alumniSchema = new Schema<TAlumni>({
+  id: {
+    type: String,
+  },
   name: {
     type: String,
     required: true,

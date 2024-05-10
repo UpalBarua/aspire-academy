@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.post("/create-mentor", mentorController.createMentor);
 router.get("/", mentorController.getMentor);
+router.delete("/:id", mentorController.deleteMentor);
 
 export const mentorRoutes = router;
