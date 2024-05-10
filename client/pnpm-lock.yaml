@@ -4,7 +4,67 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  '@hookform/resolvers':
+    specifier: ^3.3.4
+    version: 3.3.4(react-hook-form@7.51.3)
+  '@radix-ui/react-avatar':
+    specifier: ^1.0.4
+    version: 1.0.4(@types/react-dom@18.0.0)(@types/react@18.0.0)(react-dom@18.0.0)(react@18.0.0)
+  '@radix-ui/react-dropdown-menu':
+    specifier: ^2.0.6
+    version: 2.0.6(@types/react-dom@18.0.0)(@types/react@18.0.0)(react-dom@18.0.0)(react@18.0.0)
+  '@radix-ui/react-label':
+    specifier: ^2.0.2
+    version: 2.0.2(@types/react-dom@18.0.0)(@types/react@18.0.0)(react-dom@18.0.0)(react@18.0.0)
+  '@radix-ui/react-scroll-area':
+    specifier: ^1.0.5
+    version: 1.0.5(@types/react-dom@18.0.0)(@types/react@18.0.0)(react-dom@18.0.0)(react@18.0.0)
+  '@radix-ui/react-select':
+    specifier: ^2.0.0
+    version: 2.0.0(@types/react-dom@18.0.0)(@types/react@18.0.0)(react-dom@18.0.0)(react@18.0.0)
+  '@radix-ui/react-slot':
+    specifier: ^1.0.2
+    version: 1.0.2(@types/react@18.0.0)(react@18.0.0)
+  class-variance-authority:
+    specifier: ^0.7.0
+    version: 0.7.0
+  clsx:
+    specifier: ^2.1.1
+    version: 2.1.1
+  lucide-react:
+    specifier: ^0.373.0
+    version: 0.373.0(react@18.0.0)
+  next:
+    specifier: 14.2.3
+    version: 14.2.3(react-dom@18.0.0)(react@18.0.0)
+  next-auth:
+    specifier: ^5.0.0-beta.17
+    version: 5.0.0-beta.17(next@14.2.3)(react@18.0.0)
+  next-themes:
+    specifier: ^0.3.0
+    version: 0.3.0(react-dom@18.0.0)(react@18.0.0)
+  react:
+    specifier: ^18
+    version: 18.0.0
+  react-countup:
+    specifier: ^6.5.3
+    version: 6.5.3(react@18.0.0)
+  react-dom:
+    specifier: ^18
+    version: 18.0.0(react@18.0.0)
+  react-hook-form:
+    specifier: ^7.51.3
+    version: 7.51.3(react@18.0.0)
+  tailwind-merge:
+    specifier: ^2.3.0
+    version: 2.3.0
+  tailwindcss-animate:
+    specifier: ^1.0.7
+    version: 1.0.7(tailwindcss@3.4.1)
+  zod:
+    specifier: ^3.23.4
+    version: 3.23.4
 
   .:
     dependencies:
