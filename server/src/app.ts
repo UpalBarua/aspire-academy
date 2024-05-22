@@ -8,6 +8,8 @@ import { alumniRoutes } from "./modules/alumni/alumni.route";
 // routes
 import userRoutes from "./modules/user/user.route";
 import { mentorRoutes } from "./modules/mentor/mentor.route";
+import { latestEventRoutes } from "./modules/latestEvent/latestEvent.route";
+import { blogRoutes } from "./modules/blog/blog.route";
 
 const app = express();
 
@@ -20,6 +22,8 @@ app.use(morgan("dev"));
 app.use("/api/users", userRoutes);
 app.use("/api/alumni", alumniRoutes);
 app.use("/api/mentor", mentorRoutes);
+app.use("/api/latest-event", latestEventRoutes);
+app.use("/api/blog", blogRoutes);
 
 app.all("*", (_req: Request, res: Response) => {
   res.status(404).json({
