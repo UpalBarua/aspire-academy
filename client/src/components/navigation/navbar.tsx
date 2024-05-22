@@ -14,6 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 import { mainNavLinks } from "@/config";
+import { MobileNav } from "./mobile-nav";
 
 export function Navbar() {
   return (
@@ -31,7 +32,7 @@ export function Navbar() {
             Aspire Academy
           </span>
         </Link>
-        <NavigationMenu>
+        <NavigationMenu className="hidden lg:block">
           <NavigationMenuList>
             {mainNavLinks.map(({ label, href, subLinks }) =>
               subLinks.length ? (
@@ -61,6 +62,7 @@ export function Navbar() {
             )}
           </NavigationMenuList>
         </NavigationMenu>
+        <MobileNav />
       </div>
     </header>
   );
