@@ -37,14 +37,14 @@ export function CourseSearch() {
     <form
       onClick={() => setIsSearchOpen(true)}
       className={cn(
-        "absolute right-0 top-0 flex h-12 w-[24rem] flex-col items-center justify-start space-y-8 overflow-hidden rounded-[100vmin] border border-border/25 bg-card/90 px-4 text-sm text-secondary-foreground backdrop-blur-md backdrop-saturate-200 transition-all duration-200",
+        "right-0 top-0 flex h-12 w-full flex-col items-center justify-start space-y-8 overflow-hidden rounded-[100vmin] border border-border/25 bg-card/90 px-4 text-sm text-secondary-foreground backdrop-blur-md backdrop-saturate-200 transition-all duration-200 md:absolute md:w-[20rem] lg:w-[28rem]",
         {
-          "h-[22rem] w-[38rem] items-start rounded-3xl px-5 py-4 shadow-2xl":
+          "h-[22rem] items-start rounded-3xl px-5 py-4 shadow-2xl md:w-[28rem]":
             isSearchOpen,
         },
       )}
     >
-      <div className="flex w-full items-center gap-x-4 border-b">
+      <div className="flex w-full items-center gap-x-4">
         <Search className="h-5 w-5" />
         <input
           type="text"
@@ -58,7 +58,7 @@ export function CourseSearch() {
           {categories.map((category) => (
             <li
               className={cn(
-                "flex items-center justify-between gap-x-2 rounded-[100vmin] border px-4 py-2 text-base",
+                "flex cursor-pointer items-center justify-between gap-x-2 rounded-[100vmin] border px-4 py-2 text-base",
                 {
                   "border-primary text-primary":
                     selectedCategories.includes(category),
@@ -80,7 +80,7 @@ export function CourseSearch() {
           {filter.map((filter) => (
             <li
               className={cn(
-                "flex items-center justify-between gap-x-2 rounded-[100vmin] border px-4 py-2 text-base",
+                "flex cursor-pointer items-center justify-between gap-x-2 rounded-[100vmin] border px-4 py-2 text-base",
                 {
                   "border-primary text-primary":
                     selectedFilters.includes(filter),

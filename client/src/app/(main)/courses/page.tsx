@@ -18,8 +18,8 @@ const COURSE = {
 
 export default function CoursesPage() {
   return (
-    <div className="mx-auto max-w-7xl px-2">
-      <div className="relative flex max-w-7xl items-center justify-between px-2 pb-10">
+    <div className="container">
+      <div className="relative flex flex-col gap-6 pb-10">
         <div className="space-y-2">
           <h2 className="text-3xl font-medium tracking-tight">
             Courses to get you started
@@ -30,7 +30,7 @@ export default function CoursesPage() {
         </div>
         <CourseSearch />
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <CourseCard {...COURSE} />
         <CourseCard {...COURSE} />
         <CourseCard {...COURSE} />

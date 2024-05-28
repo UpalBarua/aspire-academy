@@ -32,15 +32,15 @@ export function CourseCard({
   instructor_pic,
 }: Readonly<CourseCardProps>) {
   return (
-    <Card className="max-w-[28rem] border-border/50 bg-card/25">
+    <Card className="mx-auto max-w-[28rem] border-border/50 bg-card/25">
       <Image
         src={course_banner}
         alt={course_name}
-        className="w-full rounded-tl-[inherit] rounded-tr-[inherit] border-b border-border/50 object-cover object-center"
+        className="min-h-[20rem] w-full rounded-tl-[inherit] rounded-tr-[inherit] border-b border-border/50 object-cover object-center"
         height="200"
         width="350"
       />
-      <div className="flex items-center gap-x-2 p-4">
+      <div className="flex flex-wrap items-center gap-2 p-4">
         <div className="flex max-w-max items-center gap-x-2 rounded-full border border-border/50 px-4 py-2 text-sm leading-none">
           <GraduationCap className="h-4 w-4 text-primary" />
           <span>Batch 06</span>
