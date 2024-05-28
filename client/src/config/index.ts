@@ -8,6 +8,7 @@ export const mainNavLinks = [
   },
   {
     label: "Hover Card",
+    href: "",
     description:
       "For sighted users to preview content available behind a link.",
     subLinks: [
@@ -44,6 +45,7 @@ export const mainNavLinks = [
   },
   {
     label: "Hover Card",
+    href: "",
     description:
       "For sighted users to preview content available behind a link.",
     subLinks: [
@@ -82,6 +84,7 @@ export const mainNavLinks = [
   },
   {
     label: "Hover Card",
+    href: "",
     description:
       "For sighted users to preview content available behind a link.",
     subLinks: [
