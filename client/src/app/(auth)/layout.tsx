@@ -24,7 +24,7 @@ export default function AuthLayout({ children }: Readonly<AuthLayoutProps>) {
       </div>
       <div
         className="fixed 
-        left-[28rem] top-0 hidden h-full w-[calc(100%-28rem)] rounded-[2rem_0_0_5rem] bg-[url('/images/auth-banner.jpg')] bg-cover bg-center lg:block"
+        left-[28rem] top-0 hidden h-full w-[calc(100%-28rem)] rounded-[3rem_0_0_3rem] bg-[url('/images/auth-banner.jpg')] bg-cover bg-center lg:block"
       >
         <div className="absolute inset-0 -mt-10 flex flex-col items-center justify-center gap-2 bg-background/80">
           <Image
