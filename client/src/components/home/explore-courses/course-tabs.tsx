@@ -1,6 +1,6 @@
+import { CourseCard } from "@/components/course-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { categories } from "@/config";
-import { CourseCard } from "@/components/course-card";
 
 const COURSE = {
   id: 1,

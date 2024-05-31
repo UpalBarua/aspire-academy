@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 
+import { CourseTabs } from "@/components/home/explore-courses/course-tabs";
 import { Button } from "@/components/ui/button";
-import { CourseTabs } from "@/components/home/course-tabs";
 
 export function ExploreCourses() {
   return (

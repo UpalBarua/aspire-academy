@@ -1,4 +1,4 @@
-import { ExploreCourses } from "@/components/home/explore-courses";
+import { ExploreCourses } from "@/components/home/explore-courses/explore-courses";
 
 export default function Home() {
   return (
