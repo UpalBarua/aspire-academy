@@ -1,3 +1,13 @@
+import {
+  Code,
+  Settings,
+  BarChart,
+  Database,
+  Camera,
+  Lock,
+  Shield,
+} from "lucide-react";
+
 export const mainNavLinks = [
   {
     label: "Alert Dialog",
@@ -8,6 +18,7 @@ export const mainNavLinks = [
   },
   {
     label: "Hover Card",
+    href: "",
     description:
       "For sighted users to preview content available behind a link.",
     subLinks: [
@@ -44,6 +55,7 @@ export const mainNavLinks = [
   },
   {
     label: "Hover Card",
+    href: "",
     description:
       "For sighted users to preview content available behind a link.",
     subLinks: [
@@ -82,6 +94,7 @@ export const mainNavLinks = [
   },
   {
     label: "Hover Card",
+    href: "",
     description:
       "For sighted users to preview content available behind a link.",
     subLinks: [
@@ -110,4 +123,14 @@ export const mainNavLinks = [
       },
     ],
   },
+] as const;
+
+export const categories = [
+  { category: "Web & App Development", Icon: Code },
+  { category: "Product Management & Design", Icon: Settings },
+  { category: "Business & Marketing", Icon: BarChart },
+  { category: "Data Engineering", Icon: Database },
+  { category: "Creatives", Icon: Camera },
+  { category: "Blockchain Development", Icon: Lock },
+  { category: "Cyber Security", Icon: Shield },
 ] as const;
