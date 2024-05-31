@@ -3,6 +3,7 @@ import { BriefcaseBusiness, Globe, Layers, MoveRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import CountUp, { useCountUp } from "react-countup";
+import { Button } from "./ui/button";
 
 const Counter = () => {
   useCountUp({
@@ -14,44 +15,32 @@ const Counter = () => {
     duration: 120,
   });
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section>
       <div className="mx-auto items-center px-4 py-8 md:w-[90%] lg:grid lg:grid-cols-4 lg:gap-16 lg:px-6 lg:py-24 xl:gap-24">
         <div className="col-span-2 mb-8">
-          <p className="text-lg font-medium text-purple-600 dark:text-purple-500">
-            Trusted Worldwide
+          <p className="text-lg font-medium text-primary">
+            Journey Of Aspire Academy
           </p>
           <h2 className="mb-4 mt-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white md:text-3xl">
-            Trusted by over 600 million users and 10,000 teams
+            Prepared by over 15000 users and thousands of teams worldwide.
           </h2>
           <p className="font-light text-gray-500 dark:text-gray-400 sm:text-xl">
             Our rigorous security and compliance standards are at the heart of
             all we do. We work tirelessly to protect Our Users.
           </p>
-          <div className="mt-6 space-y-4 border-t border-gray-200 pt-6 dark:border-gray-700">
-            <div>
-              <Link
-                href=""
-                className="inline-flex items-center text-base font-medium text-purple-600 hover:text-purple-800 dark:text-purple-500 dark:hover:text-purple-700"
-              >
-                Explore Legality Guide
-                <MoveRight className="ml-2" size={20} />
-              </Link>
-            </div>
-            <div>
-              <Link
-                href=""
-                className="inline-flex items-center text-base font-medium text-purple-600 hover:text-purple-800 dark:text-purple-500 dark:hover:text-purple-700"
-              >
-                Visit the Trust Center
-                <MoveRight className="ml-2" size={20} />
-              </Link>
-            </div>
+          <div className="flex items-center gap-4 pt-6">
+            <Button className="rounded-md font-bold duration-300 hover:bg-secondary hover:text-white ">
+              AboutUs
+            </Button>
+            <Button className="rounded-md bg-secondary font-bold text-white">
+              Alumni
+            </Button>
           </div>
         </div>
         <div className="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
           <div>
             <Layers
-              className="mb-2  h-10 w-10 text-purple-600 dark:text-purple-500"
+              className="mb-2  h-10 w-10 text-black dark:text-primary"
               size={20}
             />
 
@@ -64,7 +53,7 @@ const Counter = () => {
           </div>
           <div>
             <svg
-              className="mb-2 h-10 w-10 text-purple-600 dark:text-purple-500 md:h-12 md:w-12"
+              className="mb-2 h-10 w-10 text-black dark:text-primary md:h-12 md:w-12"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -75,12 +64,12 @@ const Counter = () => {
               <CountUp end={15000} enableScrollSpy />+ Learners
             </h3>
             <p className="font-light text-gray-500 dark:text-gray-400">
-              We are a greate comunity of 15000 people
+              We are a grate family of 15000 people.
             </p>
           </div>
           <div>
             <BriefcaseBusiness
-              className="mb-2  h-10 w-10 text-purple-600 dark:text-purple-500"
+              className="mb-2  h-10 w-10 text-black dark:text-primary"
               size={20}
             />
 
@@ -93,15 +82,15 @@ const Counter = () => {
           </div>
           <div>
             <Globe
-              className="mb-2  h-10 w-10 text-purple-600 dark:text-purple-500"
+              className="mb-2  h-10 w-10 text-black dark:text-primary"
               size={20}
             />
 
             <h3 className="mb-2 text-2xl font-bold dark:text-white">
-              <CountUp end={100} enableScrollSpy />+ Team
+              <CountUp end={50} enableScrollSpy />+ Team
             </h3>
             <p className="font-light text-gray-500 dark:text-gray-400">
-              We are a Team of 100 people.
+              There are 50 member working here
             </p>
           </div>
         </div>

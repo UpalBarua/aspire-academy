@@ -115,41 +115,13 @@ const AlumniPage = () => {
       department: "Administration",
       _id: "16",
     },
-    {
-      image: "https://i.ibb.co/y4R3g86/michael-dam-m-EZ3-Po-FGs-k-unsplash.jpg",
-      name: "Ethan",
-      batch: "B017",
-      department: "Facilities",
-      _id: "17",
-    },
-    {
-      image: "https://i.ibb.co/y4R3g86/michael-dam-m-EZ3-Po-FGs-k-unsplash.jpg",
-      name: "Harper",
-      batch: "B018",
-      department: "Logistics",
-      _id: "18",
-    },
-    {
-      image: "https://i.ibb.co/y4R3g86/michael-dam-m-EZ3-Po-FGs-k-unsplash.jpg",
-      name: "Logan",
-      batch: "B019",
-      department: "Quality Control",
-      _id: "19",
-    },
-    {
-      image: "https://i.ibb.co/y4R3g86/michael-dam-m-EZ3-Po-FGs-k-unsplash.jpg",
-      name: "Madison",
-      batch: "B020",
-      department: "Compliance",
-      _id: "20",
-    },
   ];
 
   return (
     <div className="mx-auto w-[90%] lg:w-[92%] xl:w-[87%]">
       <div className="mx-auto w-full lg:mx-0 ">
         <h2 className="text-3xl font-semibold  tracking-tight text-purple-600 hover:text-purple-800 dark:text-purple-500 sm:text-4xl ">
-         OUR ALUMNIS
+          OUR ALUMNIS
         </h2>
         <div className="mt-1">
           <span className="inline-block h-1 w-40 rounded-full bg-purple-500 "></span>
@@ -157,7 +129,7 @@ const AlumniPage = () => {
           <span className="ml-1 inline-block h-1 w-2 rounded-full bg-purple-500 "></span>
         </div>
       </div>
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2   md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6  mx-auto">
+      <div className="mx-auto mt-8 grid grid-cols-1   gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4">
         {alumnis?.map((singleALumni) => (
           <AlumniCard key={singleALumni._id} alumni={singleALumni} />
         ))}
