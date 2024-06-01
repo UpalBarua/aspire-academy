@@ -4,13 +4,13 @@ import { ArrowUpRight, HeartHandshake, Dot } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="container grid min-h-[40rem] grid-cols-2 gap-4">
-      <div className="flex flex-col rounded-3xl border border-border/25 bg-secondary/50 p-9">
+    <section className="container grid min-h-[40rem] grid-cols-1 gap-4 lg:grid-cols-2">
+      <div className="relative z-[10] flex flex-col rounded-3xl border border-border/25 bg-secondary/50 p-8 backdrop-blur-md backdrop-saturate-200 lg:p-9">
         <div className="flex-1">
-          <h1 className="text-pretty pb-8 text-3xl font-extrabold capitalize tracking-tight text-foreground lg:text-6xl lg:leading-[1.35]">
+          <h1 className="text-pretty pb-8 text-center text-[clamp(2.375rem,_5vw+0.5rem,_3.75rem)] font-extrabold capitalize leading-[1.35] tracking-tight text-foreground lg:text-start">
             We ignite ambition and empower you to reach your full potential 🚀
           </h1>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
             <Link
               href="/courses"
               className={buttonVariants({
@@ -33,7 +33,7 @@ export function Hero() {
             </Link>
           </div>
         </div>
-        <div className="flex items-center gap-2 text-lg text-foreground/60">
+        <div className="flex items-center justify-center gap-2 pt-14 text-foreground/60 lg:justify-start lg:pt-0">
           <Link href="/about" className="hover:text-foreground">
             About Us
           </Link>
@@ -66,14 +66,14 @@ export function Hero() {
             </div>
           </div>
         </div>
-        <div className="col-span-2 row-span-2 rounded-3xl border border-border/25 bg-primary p-6 leading-relaxed text-background shadow">
+        <div className="col-span-6 row-span-2 rounded-3xl border border-border/25 bg-primary p-6 leading-relaxed text-background shadow sm:col-span-2">
           <span className="text-5xl font-extrabold">500+</span>
           <p className="pt-2 text-background/80">
             students have successfully completed a variety of courses and
             achieved their goals.
           </p>
         </div>
-        <div className="col-span-3 row-span-2 rounded-3xl border border-border/25 bg-secondary p-6 leading-relaxed shadow">
+        <div className="col-span-6 row-span-2 rounded-3xl border border-border/25 bg-secondary p-6 leading-relaxed shadow sm:col-span-3">
           <div className="flex items-center justify-between pb-2">
             <h2 className="text-3xl font-medium">Discover</h2>
             <span className="rounded-full bg-primary p-3">
