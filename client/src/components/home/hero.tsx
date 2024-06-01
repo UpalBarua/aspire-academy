@@ -4,8 +4,8 @@ import { ArrowUpRight, HeartHandshake, Dot } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="container grid min-h-[40rem] grid-cols-1 gap-4 lg:grid-cols-2">
-      <div className="relative z-[10] flex flex-col rounded-3xl border border-border/25 bg-secondary/50 p-8 backdrop-blur-md backdrop-saturate-200 lg:p-9">
+    <section className="pb-section container grid min-h-[40rem] grid-cols-1 gap-4 lg:grid-cols-2">
+      <div className="flex flex-col rounded-3xl border border-border/25 bg-secondary/50 p-8 backdrop-blur-md backdrop-saturate-200 lg:p-9">
         <div className="flex-1">
           <h1 className="text-pretty pb-8 text-center text-[clamp(2.375rem,_5vw+0.5rem,_3.75rem)] font-extrabold capitalize leading-[1.35] tracking-tight text-foreground lg:text-start">
             We ignite ambition and empower you to reach your full potential 🚀
