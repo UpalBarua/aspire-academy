@@ -5,6 +5,7 @@ import React from "react";
 import CountUp, { useCountUp } from "react-countup";
 import { Button } from "./ui/button";
 
+
 const Counter = () => {
   useCountUp({
     ref: "counter",
