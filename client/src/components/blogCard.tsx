@@ -14,7 +14,7 @@ export default function BlogCard({ blog }: { blog: TBlog }) {
   const { title, image, date, writer, id } = blog;
   return (
     <div>
-      <Link href={`/blog/${id}`}>
+      <Link href={`blog/${id}`}>
         <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 py-8 pb-8 pt-80 dark:bg-gray-700 sm:pt-48 lg:pt-72">
           <Image
             src={image}
