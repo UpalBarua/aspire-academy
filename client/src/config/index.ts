@@ -1,17 +1,21 @@
 import {
-  Code,
+  BarChart,
   Boxes,
+  BriefcaseBusiness,
+  Camera,
+  Code,
   Computer,
+  Database,
   Factory,
+  Globe2,
   GraduationCap,
+  Layers,
   ListPlus,
+  Lock,
   Projector,
   Settings,
-  BarChart,
-  Database,
-  Camera,
-  Lock,
   Shield,
+  Users,
 } from "lucide-react";
 
 export const categories = [
@@ -66,5 +70,32 @@ export const facilities = [
     title: "Job Placement",
     description:
       "We try to give lot of support from us.We hope that support change her mind to access it and there are lot of student do it .We hope we give a proper platform.",
+  },
+] as const;
+
+export const stats = [
+  {
+    Icon: Layers,
+    number: 20,
+    unit: "Courses",
+    text: "We Provide Various Kinds of Courses.",
+  },
+  {
+    Icon: Users,
+    number: 1500,
+    unit: "Learners",
+    text: "We are a grate family of 1,500 people.",
+  },
+  {
+    Icon: BriefcaseBusiness,
+    number: 500,
+    unit: "Job Placed",
+    text: "Successfuly completed students get job nationwide.",
+  },
+  {
+    Icon: Globe2,
+    number: 20,
+    unit: "Teams",
+    text: "There are 20 teams working here.",
   },
 ] as const;
