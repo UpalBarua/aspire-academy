@@ -1,4 +1,5 @@
 import Counter from "@/components/Counter";
+import RecentEvent from "@/components/recentEvent";
 import Testimonial from "@/components/testimonial";
 
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -11,6 +12,7 @@ export default async function Home() {
       <ThemeToggle />
       <WhatWeProvide />
       <Counter />
+      <RecentEvent />
       <Testimonial />
     </div>
   );

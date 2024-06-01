@@ -11,7 +11,7 @@ import {
 import React from "react";
 
 export default function WhatWeProvide() {
-  const iconSize = 40;
+  const iconSize = 48;
   const allProvide = [
     {
       id: 1,
@@ -71,15 +71,18 @@ export default function WhatWeProvide() {
       </div>
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {allProvide?.map((provide) => (
-          <div key={provide?.id} className="rounded-md bg-secondary p-6">
+          <div
+            key={provide?.id}
+            className="flex flex-col items-center rounded-md bg-secondary p-6"
+          >
             <div className="flex justify-center">
               <h2>{provide?.icon} </h2>
             </div>
 
-            <h1 className="pb-3  text-center text-[24px] font-semibold">
+            <h1 className="pb-3 pt-3  text-center text-[24px] font-semibold">
               {provide?.title}
             </h1>
-            <p className="pb-6">{provide?.description}</p>
+            <p className="pb-6 text-center ">{provide?.description}</p>
           </div>
         ))}
       </div>
