@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export function ExploreCourses() {
   return (
-    <section className="container">
+    <section className="pb-section container">
       <SectionHeading
         heading="Explore Our Courses"
         subHeading="Explore our diverse range of courses to boost your skills and discover
