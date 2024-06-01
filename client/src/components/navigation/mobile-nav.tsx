@@ -4,7 +4,7 @@ import { Fragment } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
-import { mainNavLinks } from "@/config";
+import { mainNavLinks } from "@/config/navigation";
 
 export function MobileNav() {
   return (
