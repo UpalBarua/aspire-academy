@@ -1,6 +1,7 @@
 export type THelpDesk = {
   id: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   number: string;
   message: string;
