@@ -1,6 +1,6 @@
-export type TMentor = {
+export type TManagement = {
   id: string;
   name: string;
   image: string;
-  course: string;
+  position: string;
 };

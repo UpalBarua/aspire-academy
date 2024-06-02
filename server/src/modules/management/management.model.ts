@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
-import { TMentor } from "./mentor.type";
+import { TManagement } from "./management.type";
 
-const mentorSchema = new Schema<TMentor>({
+const managementSchema = new Schema<TManagement>({
   id: {
     type: String,
   },
@@ -9,14 +9,14 @@ const mentorSchema = new Schema<TMentor>({
     type: String,
     required: true,
   },
-  course: {
+  image: {
     type: String,
     required: true,
   },
-  image: {
+  position: {
     type: String,
     required: true,
   },
 });
 
-export const mentorModel = model<TMentor>("Mentor", mentorSchema);
+export const managementModel = model<TManagement>("Mentor", managementSchema);
