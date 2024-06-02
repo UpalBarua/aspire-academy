@@ -8,12 +8,12 @@ import { Stats } from "@/components/home/stats";
 export default async function Home() {
   return (
     <div>
-      {/* <Hero /> */}
-      {/* <ExploreCourses /> */}
-      {/* <WhatWeProvide /> */}
-      {/* <Stats /> */}
+      <Hero />
+      <ExploreCourses />
+      <WhatWeProvide />
+      <Stats />
       <RecentEvents />
-      {/* <Testimonial /> */}
+      <Testimonial />
     </div>
   );
 }
