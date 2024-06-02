@@ -182,3 +182,81 @@ export const events = [
       "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ] as const;
+
+export const testimonials = [
+  {
+    id: 1,
+    name: "Ashik khan",
+    course: "web development",
+    review:
+      "Diam quis enim lobortis scelerisque fermentum dui fauci in ornare. Donec pretium vulputate sapien nec sagitti aliquam malesuada bibendum.",
+  },
+  {
+    id: 1,
+    name: "Ashik khan",
+    course: "web development",
+    review:
+      "Diam quis enim lobortis scelerisque fermentum dui fauci in ornare. Donec pretium vulputate sapien nec sagitti aliquam malesuada bibendum.",
+  },
+  {
+    id: 1,
+    name: "Ashik khan",
+    course: "web development",
+    review:
+      "Diam quis enim lobortis scelerisque fermentum dui fauci in ornare. Donec pretium vulputate sapien nec sagitti aliquam malesuada bibendum.",
+  },
+  {
+    id: 1,
+    name: "Ashik khan",
+    course: "web development",
+    review:
+      "Diam quis enim lobortis scelerisque fermentum dui fauci in ornare. Donec pretium vulputate sapien nec sagitti aliquam malesuada bibendum.",
+  },
+  {
+    id: 1,
+    name: "Ashik khan",
+    course: "web development",
+    review:
+      "Diam quis enim lobortis scelerisque fermentum dui fauci in ornare. Donec pretium vulputate sapien nec sagitti aliquam malesuada bibendum.",
+  },
+  {
+    id: 1,
+    name: "Ashik khan",
+    course: "web development",
+    review:
+      "Diam quis enim lobortis scelerisque fermentum dui fauci in ornare. Donec pretium vulputate sapien nec sagitti aliquam malesuada bibendum.",
+  },
+] as const;
+
+export const faqs = [
+  {
+    id: 1,
+    question: "What are the prerequisites for enrolling in this course?",
+    answer:
+      "The prerequisites vary by course. Please check the course description for specific requirements or contact our admissions office for more information.",
+  },
+  {
+    id: 2,
+    question: "How do I apply for the course?",
+    answer:
+      "To apply, visit our admissions page, complete the online application form, and submit the required documents. Detailed instructions are provided on the application page.",
+  },
+  {
+    id: 3,
+    question: "What is the course schedule and duration?",
+    answer:
+      "Course schedules and durations vary. Please refer to the specific course page for detailed information on start dates, class times, and overall length.",
+  },
+  {
+    id: 4,
+    question: "Are there any financial aid options or scholarships available?",
+    answer:
+      "Yes, we offer various financial aid options and scholarships. Visit our financial aid page or contact our financial aid office for details on how to apply.",
+  },
+  {
+    id: 5,
+    question: "What materials or textbooks are required for the course?",
+    answer:
+      "Required materials and textbooks are listed in the course syllabus, which is available on the course page or provided upon enrollment.",
+  },
+] as const;
