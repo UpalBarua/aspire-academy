@@ -99,3 +99,86 @@ export const stats = [
     text: "There are 20 teams working here.",
   },
 ] as const;
+
+export const events = [
+  {
+    title: "React Seminar",
+    date: "04-02-2024",
+    description:
+      "This is a great seminar we have done we want to do it different .Lot student are joining here .We are happy about our event and people can enjoyed it",
+    image:
+      "https://images.unsplash.com/photo-1595020879644-ed54888c8b9b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "NodeJs Seminar",
+    date: "04-02-2024",
+    description:
+      "This is a great seminar we have done we want to do it different .Lot student are joining here .We are happy about our event and people can enjoyed it",
+    image:
+      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Marketing Seminar",
+    date: "04-02-2024",
+    description:
+      "This is a great seminar we have done we want to do it different .Lot student are joining here .We are happy about our event and people can enjoyed it",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Seo Seminar",
+    date: "04-02-2024",
+    description:
+      "This is a great seminar we have done we want to do it different .Lot student are joining here .We are happy about our event and people can enjoyed it",
+    image:
+      "https://images.unsplash.com/photo-1560439514-e960a3ef5019?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "javascript Seminar",
+    date: "04-02-2024",
+    description:
+      "This is a great seminar we have done we want to do it different .Lot student are joining here .We are happy about our event and people can enjoyed it",
+    image:
+      "https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Mern Seminar",
+    date: "04-02-2024",
+    description:
+      "This is a great seminar we have done we want to do it different .Lot student are joining here .We are happy about our event and people can enjoyed it",
+    image:
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "React Seminar",
+    date: "04-02-2024",
+    description:
+      "This is a great seminar we have done we want to do it different .Lot student are joining here .We are happy about our event and people can enjoyed it",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "React Seminar",
+    date: "04-02-2024",
+    description:
+      "This is a great seminar we have done we want to do it different .Lot student are joining here .We are happy about our event and people can enjoyed it",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "React Seminar",
+    date: "04-02-2024",
+    description:
+      "This is a great seminar we have done we want to do it different .Lot student are joining here .We are happy about our event and people can enjoyed it",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "React Seminar",
+    date: "04-02-2024",
+    description:
+      "This is a great seminar we have done we want to do it different .Lot student are joining here .We are happy about our event and people can enjoyed it",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+] as const;

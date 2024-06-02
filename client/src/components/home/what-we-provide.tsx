@@ -19,7 +19,12 @@ export function WhatWeProvide() {
 
 type FacilityCardProps = (typeof facilities)[number];
 
-function FacilityCard({ Icon, title, color, description }: FacilityCardProps) {
+function FacilityCard({
+  Icon,
+  title,
+  color,
+  description,
+}: Readonly<FacilityCardProps>) {
   return (
     <li className="group relative flex flex-col items-start justify-center overflow-hidden rounded-3xl border border-border/25 bg-secondary/50 p-8 pr-28 transition-colors duration-300 hover:bg-secondary/75">
       <Icon

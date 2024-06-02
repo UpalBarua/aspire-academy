@@ -1,4 +1,4 @@
-import RecentEvent from "@/components/recentEvent";
+import { RecentEvents } from "@/components/home/recent-events";
 import Testimonial from "@/components/testimonial";
 import { WhatWeProvide } from "@/components/home/what-we-provide";
 import { Hero } from "@/components/home/hero";
@@ -8,12 +8,12 @@ import { Stats } from "@/components/home/stats";
 export default async function Home() {
   return (
     <div>
-      <Hero />
-      <ExploreCourses />
-      <WhatWeProvide />
-      <Stats />
-      <RecentEvent />
-      <Testimonial />
+      {/* <Hero /> */}
+      {/* <ExploreCourses /> */}
+      {/* <WhatWeProvide /> */}
+      {/* <Stats /> */}
+      <RecentEvents />
+      {/* <Testimonial /> */}
     </div>
   );
 }
