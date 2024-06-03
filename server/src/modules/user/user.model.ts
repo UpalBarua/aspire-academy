@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
 import type { TUser } from "./user.type";
 import { validateEmail, validateName } from "./user.validation";
@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema<TUser>({
     type: String,
     required: true,
     trim: true,
-    minlength: [2, "Name must be at least 3 characters long."],
+    minlength: [2, "Name must be at least 2 characters long."],
     maxlength: [50, "Name cannot be longer than 50 characters."],
     validate: [validateName, "Name contains invalid characters."],
   },
