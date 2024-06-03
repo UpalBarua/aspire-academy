@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export function Testimonials() {
   return (
-    <section className="pb-section mx-auto max-w-7xl">
+    <section className="pb-section container">
       <SectionHeading
         heading="Hear From Our Students"
         subHeading="Insights and Testimonials from Our Community: Discover the Impact of Our Programs Through Our Students Eyes"
