@@ -11,7 +11,7 @@ export function Stats() {
       <div className="grid grid-cols-1 gap-16 rounded-3xl border border-border/25 bg-primary p-4 text-background shadow md:grid-cols-2">
         <div className="flex flex-col justify-center gap-4 p-4 lg:p-6">
           <span className="font-medium">Journey Of Aspire Academy</span>
-          <h2 className="text-start text-4xl font-extrabold capitalize tracking-tight md:text-5xl lg:leading-[1.35]">
+          <h2 className="text-start text-4xl font-extrabold capitalize leading-[1.25] tracking-tight md:text-5xl md:leading-[1.35]">
             Prepared over 1500 students and hundreds of teams nationwide.
           </h2>
           <p className="max-w-prose leading-relaxed text-background/80">

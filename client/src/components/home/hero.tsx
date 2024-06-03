@@ -15,7 +15,7 @@ export function Hero() {
               href="/courses"
               className={buttonVariants({
                 size: "lg",
-                className: "px-12 !text-base",
+                className: "px-14 !text-base",
               })}
             >
               Get Started
@@ -25,7 +25,7 @@ export function Hero() {
               className={buttonVariants({
                 variant: "secondary",
                 size: "lg",
-                className: "px-12 !text-base",
+                className: "px-14 !text-base",
               })}
             >
               <HeartHandshake className="size-5" />
