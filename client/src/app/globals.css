@@ -85,4 +85,8 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  .pb-section {
+    padding-bottom: min(30vw, 14rem);
+  }
 }

@@ -2,13 +2,16 @@ import { ArrowRight } from "lucide-react";
 
 import { CourseTabs } from "@/components/home/explore-courses/course-tabs";
 import { Button } from "@/components/ui/button";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 export function ExploreCourses() {
   return (
-    <section className="">
-      <h2 className="pb-10 text-center text-4xl font-medium tracking-tight">
-        Explore Our Courses
-      </h2>
+    <section className="pb-section container">
+      <SectionHeading
+        heading="Explore Our Courses"
+        subHeading="Explore our diverse range of courses to boost your skills and discover
+        new passions. Start your learning journey today!"
+      />
       <CourseTabs />
       <div className="mt-10 flex items-center justify-center">
         <Button variant="secondary" size="lg" className="w-[15rem]">
