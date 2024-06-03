@@ -9,10 +9,10 @@ import { socialLinks } from "@/config";
 
 export function Footer() {
   return (
-    <footer className="flex min-h-[25rem] items-center justify-center rounded-tl-3xl rounded-tr-3xl border-t border-border/25 bg-secondary/25">
+    <footer className="flex min-h-[25rem] items-center justify-center rounded-tl-3xl rounded-tr-3xl border-t border-border/25 bg-secondary/25 py-14">
       <div className="container space-y-14">
-        <div className="flex items-center justify-between">
-          <Link className="flex items-center gap-x-3" href="/">
+        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
+          <Link className="flex items-center gap-x-4" href="/">
             <Image
               className="rounded-full"
               src="/images/logo.png"
@@ -29,7 +29,7 @@ export function Footer() {
             <ArrowRight />
           </Link>
         </div>
-        <div className="grid grid-cols-5">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
           {mainNavLinks.map(
             ({ subLinks, label }) =>
               subLinks.length !== 0 && (
@@ -46,11 +46,16 @@ export function Footer() {
                 </div>
               ),
           )}
-          <div className="col-span-2 rounded-3xl border border-border/25 bg-secondary/50 p-6">
-            <h4 className="text-start text-2xl font-extrabold capitalize leading-[1.25] tracking-tight md:leading-[1.35]">
-              Join the newsletter and stay in touch
+          <div className="space-y-4 lg:col-span-2">
+            <h4 className="text-pretty text-start text-3xl font-extrabold capitalize leading-[1.25] tracking-tight md:leading-[1.35]">
+              Subscribe To Newsletter
             </h4>
-            <form className="relative">
+            <p className="text-pretty leading-relaxed text-foreground/60">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+              quod dolore numquam reiciendis excepturi qui quaerat dolorem nisi
+              beatae placeat deleniti.
+            </p>
+            <form className="relative pt-2">
               <Mail className="absolute left-[1rem] top-[50%] -translate-y-[50%] text-muted-foreground" />
               <Input
                 type="text"
@@ -66,8 +71,7 @@ export function Footer() {
             </form>
           </div>
         </div>
-        <div className="flex flex-row-reverse items-center justify-between">
-          <p>All rights reserved &copy; 2024</p>
+        <div className="flex flex-col items-center justify-between gap-8 sm:flex-row">
           <div className="flex items-center gap-4">
             {socialLinks.map(({ Icon, href }) => (
               <Link
@@ -78,6 +82,9 @@ export function Footer() {
               </Link>
             ))}
           </div>
+          <p className="leading-relaxed text-foreground/60">
+            Aspire Academy &copy; all rights reserved 2024
+          </p>
         </div>
       </div>
     </footer>
