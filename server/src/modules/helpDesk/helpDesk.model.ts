@@ -5,7 +5,11 @@ const helpDeskSchema = new Schema<THelpDesk>({
   id: {
     type: String,
   },
-  name: {
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
     type: String,
     required: true,
   },

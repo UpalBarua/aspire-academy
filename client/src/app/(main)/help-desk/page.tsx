@@ -1,0 +1,146 @@
+"use client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import React from "react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { z, ZodError } from "zod";
+import { FolderPen, MailOpen, MessageCircleMore, PhoneOff } from "lucide-react";
+
+const schema = z.object({
+  firstName: z
+    .string()
+    .min(2, { message: "First name must be at least 2 characters long" }),
+  lastName: z
+    .string()
+    .min(2, { message: "Last name must be at least 2 characters long" }),
+  email: z.string().email({ message: "Invalid email address" }),
+  number: z.string(),
+
+  message: z
+    .string()
+    .min(10, { message: "Message must be at least 10 characters long" }),
+});
+const HelpDesk = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data: any) => {
+    try {
+      const validationData = schema.parse(data);
+      const result = await axios.post(
+        "http://localhost:8080/api/help-desk/create-help-desk",
+        validationData,
+      );
+      console.log("Response from server:", result.data);
+      reset();
+    } catch (error) {
+      if (error instanceof ZodError) {
+        console.error("validation error", error?.errors);
+      }
+      console.error("Error submitting form:", error);
+    }
+  };
+  return (
+    <section className="mx-auto max-w-5xl">
+      <div className="relative m-10 rounded-lg shadow">
+        <div className="ml-2 lg:ml-8">
+          <h1 className="border-l-2 p-2 text-3xl font-bold text-primary">
+            HELP DESK
+          </h1>
+          <p>Drop Your Query Or Confusion!</p>
+        </div>
+        <div className="space-y-6 p-6">
+          <form
+            action="#"
+            className="rounded-md p-6 shadow-md shadow-secondary"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <div className="grid grid-cols-6 gap-6">
+              <div className="col-span-6 sm:col-span-3">
+                <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
+                  <FolderPen size={20} />
+                  First Name
+                </label>
+                <Input
+                  {...register("firstName", { required: true })}
+                  type="text"
+                  name="firstName"
+                  className="block w-full rounded-md border bg-secondary p-2.5 text-white"
+                  placeholder="first name"
+                />
+              </div>
+
+              <div className="col-span-6 sm:col-span-3">
+                <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
+                  <FolderPen size={20} />
+                  Last Name
+                </label>
+                <Input
+                  {...register("lastName", { required: true })}
+                  type="text"
+                  name="lastName"
+                  className="block w-full rounded-md border bg-secondary p-2.5 text-white"
+                  placeholder="last name"
+                />
+              </div>
+              <div className="col-span-6 sm:col-span-3">
+                <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
+                  <MailOpen size={20} />
+                  email
+                </label>
+                <Input
+                  {...register("email", { required: true })}
+                  type="text"
+                  name="email"
+                  className="block w-full rounded-md border bg-secondary p-2.5 text-white"
+                  placeholder="email"
+                />
+              </div>
+              <div className="col-span-6 sm:col-span-3">
+                <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
+                  <PhoneOff size={20} />
+                  Number
+                </label>
+                <Input
+                  {...register("number", { required: true })}
+                  type="text"
+                  name="number"
+                  className="block w-full rounded-md border bg-secondary p-2.5 text-white"
+                  placeholder="number"
+                />
+              </div>
+              <div className="col-span-full">
+                <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
+                  <MessageCircleMore size={22} />
+                  Message
+                </label>
+                <Textarea
+                  {...register("message", { required: true })}
+                  name="message"
+                  className="block w-full rounded-lg border bg-secondary p-4"
+                  placeholder="message"
+                ></Textarea>
+              </div>
+            </div>
+            <div>
+              <Button
+                type="submit"
+                className="mt-6 w-[300px] rounded-md font-bold"
+              >
+                Submit
+              </Button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HelpDesk;
