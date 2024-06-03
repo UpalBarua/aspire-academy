@@ -39,6 +39,8 @@ export function CourseTabs() {
             <CourseCard {...COURSE} />
             <CourseCard {...COURSE} />
             <CourseCard {...COURSE} />
+            <CourseCard {...COURSE} />
+            <CourseCard {...COURSE} />
           </div>
         </TabsContent>
       ))}
