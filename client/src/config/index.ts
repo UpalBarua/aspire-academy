@@ -6,15 +6,20 @@ import {
   Code,
   Computer,
   Database,
+  Facebook,
   Factory,
+  Github,
   Globe2,
   GraduationCap,
+  Instagram,
   Layers,
+  Linkedin,
   ListPlus,
   Lock,
   Projector,
   Settings,
   Shield,
+  Twitter,
   Users,
 } from "lucide-react";
 
@@ -258,5 +263,33 @@ export const faqs = [
     question: "What materials or textbooks are required for the course?",
     answer:
       "Required materials and textbooks are listed in the course syllabus, which is available on the course page or provided upon enrollment.",
+  },
+] as const;
+
+export const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com",
+    Icon: Facebook,
+  },
+  {
+    name: "Twitter",
+    href: "https://www.twitter.com",
+    Icon: Twitter,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com",
+    Icon: Instagram,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com",
+    Icon: Linkedin,
+  },
+  {
+    name: "GitHub",
+    href: "https://www.github.com",
+    Icon: Github,
   },
 ] as const;
