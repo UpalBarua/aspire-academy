@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.post("/create-help-desk", helpDeskController.createHelpDesk);
 router.get("/", helpDeskController.getHelpDesk);
-router.delete("/:id", helpDeskController.deleteHelpDesk);
+router.delete("/delete-help-desk/:id", helpDeskController.deleteHelpDesk);
 
 export const helpDeskRoute = router;
