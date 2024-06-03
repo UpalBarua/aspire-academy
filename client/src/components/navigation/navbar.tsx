@@ -16,7 +16,7 @@ export function Navbar() {
             height="35"
             width="35"
           />
-          <span className="text-lg font-bold tracking-tight">
+          <span className="text-lg font-medium tracking-tight">
             Aspire Academy
           </span>
         </Link>
