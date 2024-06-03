@@ -138,4 +138,9 @@ export const adminNavigation = [
     href: "/admin/students",
     Icon: Smile,
   },
+  {
+    label: "Help Desk",
+    href: "/admin/help-desk",
+    Icon: Smile,
+  },
 ] as const;
