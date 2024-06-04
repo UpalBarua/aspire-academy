@@ -50,17 +50,17 @@ export function Footer() {
             <h4 className="text-pretty text-start text-3xl font-extrabold capitalize leading-[1.25] tracking-tight md:leading-[1.35]">
               Subscribe To Newsletter
             </h4>
-            <p className="text-pretty leading-relaxed text-foreground/60">
+            <p className="text-pretty pb-2 leading-relaxed text-foreground/60">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
               quod dolore numquam reiciendis excepturi qui quaerat dolorem nisi
               beatae placeat deleniti.
             </p>
-            <form className="relative pt-2">
+            <form className="relative">
               <Mail className="absolute left-[1rem] top-[50%] -translate-y-[50%] text-muted-foreground" />
               <Input
                 type="text"
                 placeholder="example@mail.com"
-                className="h-14 rounded-[100vmin] border-border/25 ps-12 shadow"
+                className="h-14 rounded-[100vmin] border-border/25 bg-secondary/50 ps-12 shadow"
               />
               <Button
                 size="sm"
