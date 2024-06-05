@@ -30,7 +30,7 @@ export default function BlogPage() {
               Search
             </Button>
           </form>
-          <div className="hidden space-y-8 rounded-3xl border border-border/25 bg-secondary/25 p-6 lg:block">
+          <div className="hidden space-y-8 rounded-3xl border border-border/25 bg-secondary/25 p-8 lg:block">
             <h2 className="text-lg font-medium tracking-tight">Top Posts</h2>
             {blogPosts.map(({ title }, i) => (
               <Link href="/" className="group flex items-start gap-5">

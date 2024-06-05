@@ -103,18 +103,15 @@ const Event = () => {
   return (
     <section className="mx-auto mt-8 max-w-7xl">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        {allEvent?.map((event) => (
-          <Link href={`/event/${event?.id}`}>
+        {allEvent?.map((event, i) => (
+          <Link key={event?.id + i} href={`/event/${event?.id}`}>
             <div
-              key={event?.id}
               className="relative h-64 rounded-md bg-cover bg-center"
               style={{ backgroundImage: `url(${event?.image})` }}
             >
               <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-black opacity-60"></div>
               <div className="absolute bottom-0 left-0 right-0 z-10 p-4 text-white">
-                <h1 className="text-xl  font-bold text-white">
-                  {event?.title}
-                </h1>
+                <h1 className="text-xl font-bold text-white">{event?.title}</h1>
                 <p className="text-gray-300">
                   {event?.description.slice(0, 95)}
                 </p>
