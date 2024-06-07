@@ -368,3 +368,14 @@ export const blogPosts = [
       "If you’ve ever read a blog post, you’ve consumed content from a thought leader that is an expert in their industry. Chances are if the blog post was written effectively, you came away with helpful knowledge and a positive opinion about the writer or brand that produced the content.Anyone can connect with their audience through blogging and enjoy the myriad benefits that blogging provides: organic traffic from search engines, promotional content for social media, and recognition from a new audience you haven’t tapped into yet.A blog post is any article, news piece, or guide that's published in the blog section of a website. A blog post typically covers a specific topic or query, is educational in nature, ranges from 600 to 2,000+ words, and contains other media types such as images, videos, infographics, and interactive charts",
   },
 ] as const;
+
+export const paymentsMethods = [
+  {
+    name: "bkash",
+    logo: "/images/icons/bkash.svg",
+  },
+  {
+    name: "nagad",
+    logo: "/images/icons/nagad.svg",
+  },
+] as const;
