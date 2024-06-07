@@ -1,8 +1,23 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { alumniService } from "./alumni.service";
-const createAlumni = async (req: Request, res: Response) => {
+import { alumniValidation } from "./alumni.validation";
+const createAlumni = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const newAlumni = req.body;
+    const validationResult = alumniValidation.safeParse(newAlumni);
+
+    if (!validationResult.success) {
+      return res.status(400).json({
+        success: false,
+        message: "Provided alumni data is invalid.",
+        error: validationResult.error,
+      });
+    }
+
     const result = await alumniService.createAlumniDb(newAlumni);
 
     res.status(200).json({
@@ -11,7 +26,7 @@ const createAlumni = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
