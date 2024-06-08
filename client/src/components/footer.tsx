@@ -9,7 +9,7 @@ import { socialLinks } from "@/config";
 
 export function Footer() {
   return (
-    <footer className="flex min-h-[25rem] items-center justify-center rounded-tl-3xl rounded-tr-3xl border-t border-border/25 bg-secondary/25 py-14">
+    <footer className="flex min-h-[25rem] items-center justify-center border-t border-border/25 bg-secondary/25 py-14">
       <div className="container space-y-14">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
           <Link className="flex items-center gap-x-4" href="/">

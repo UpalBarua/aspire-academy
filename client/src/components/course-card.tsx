@@ -62,11 +62,11 @@ export function CourseCard({
           </div>
         </CardContent>
         <div className="absolute right-0 top-0 flex w-full flex-wrap items-center justify-between gap-2 p-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div className="flex max-w-max items-center gap-x-2 rounded-full border border-border/50 bg-background px-4 py-2 text-sm leading-none">
+          <div className="flex max-w-max items-center gap-x-2 rounded-full border border-border/50 bg-secondary px-4 py-2 text-sm leading-none">
             <GraduationCap className="h-4 w-4 text-primary" />
             <span>Batch 06</span>
           </div>
-          <div className="flex max-w-max items-center gap-x-2 rounded-full border border-border/50 bg-background px-4 py-2 text-sm leading-none">
+          <div className="flex max-w-max items-center gap-x-2 rounded-full border border-border/50 bg-secondary px-4 py-2 text-sm leading-none">
             <ArrowDownRightFromCircle className="h-4 w-4 text-primary" />
             <span>Enrolling: 22 May - 01 June</span>
           </div>
