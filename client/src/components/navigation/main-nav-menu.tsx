@@ -25,7 +25,7 @@ export function MainNavMenu() {
               <NavigationMenuTrigger className="font-normal hover:bg-secondary hover:text-foreground focus:bg-secondary focus:text-foreground focus:outline-none data-[active]:bg-secondary data-[state=open]:bg-secondary data-[active]:text-foreground data-[state=open]:text-foreground">
                 {label}
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="border-border/25 bg-background/80 text-foreground backdrop-blur-md backdrop-saturate-200">
+              <NavigationMenuContent className="bg-background/80 text-foreground backdrop-blur-md backdrop-saturate-200">
                 <ul className="left-0 top-0 grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                   {subLinks.map(({ label, href, description }) => (
                     <ListItem key={label} title={label} href={href}>

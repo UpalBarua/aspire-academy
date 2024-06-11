@@ -44,7 +44,7 @@ export function CourseCard({
             {details.length > 120 ? details.slice(0, 120) + "..." : details}{" "}
             Lorem ipsum sint cillum
           </p>
-          <div className="flex items-end justify-between pt-4">
+          <div className="flex items-end justify-between pt-2">
             <div className="flex items-center gap-x-2.5">
               <Avatar className="h-10 w-10 border border-border/25">
                 <AvatarImage src={instructor_pic} alt={instructor} />
@@ -61,12 +61,12 @@ export function CourseCard({
             </div>
           </div>
         </CardContent>
-        <div className="absolute right-0 top-0 m-2 flex flex-wrap items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div className="flex max-w-max items-center gap-x-2 rounded-full border border-border/50 bg-background px-4 py-2 text-sm leading-none">
+        <div className="absolute right-0 top-0 flex w-full flex-wrap items-center justify-between gap-2 p-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <div className="flex max-w-max items-center gap-x-2 rounded-full border border-border/50 bg-secondary px-4 py-2 text-sm leading-none">
             <GraduationCap className="h-4 w-4 text-primary" />
             <span>Batch 06</span>
           </div>
-          <div className="flex max-w-max items-center gap-x-2 rounded-full border border-border/50 bg-background px-4 py-2 text-sm leading-none">
+          <div className="flex max-w-max items-center gap-x-2 rounded-full border border-border/50 bg-secondary px-4 py-2 text-sm leading-none">
             <ArrowDownRightFromCircle className="h-4 w-4 text-primary" />
             <span>Enrolling: 22 May - 01 June</span>
           </div>

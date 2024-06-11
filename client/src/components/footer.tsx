@@ -9,7 +9,7 @@ import { socialLinks } from "@/config";
 
 export function Footer() {
   return (
-    <footer className="flex min-h-[25rem] items-center justify-center rounded-tl-3xl rounded-tr-3xl border-t border-border/25 bg-secondary/25 py-14">
+    <footer className="flex min-h-[25rem] items-center justify-center border-t border-border/25 bg-secondary/25 py-14">
       <div className="container space-y-14">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
           <Link className="flex items-center gap-x-4" href="/">
@@ -50,17 +50,17 @@ export function Footer() {
             <h4 className="text-pretty text-start text-3xl font-extrabold capitalize leading-[1.25] tracking-tight md:leading-[1.35]">
               Subscribe To Newsletter
             </h4>
-            <p className="text-pretty leading-relaxed text-foreground/60">
+            <p className="text-pretty pb-2 leading-relaxed text-foreground/60">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
               quod dolore numquam reiciendis excepturi qui quaerat dolorem nisi
               beatae placeat deleniti.
             </p>
-            <form className="relative pt-2">
+            <form className="relative">
               <Mail className="absolute left-[1rem] top-[50%] -translate-y-[50%] text-muted-foreground" />
               <Input
                 type="text"
                 placeholder="example@mail.com"
-                className="h-14 rounded-[100vmin] border-border/25 ps-12 shadow"
+                className="h-14 rounded-[100vmin] border-border/25 bg-secondary/50 ps-12 shadow"
               />
               <Button
                 size="sm"
