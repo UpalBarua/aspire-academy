@@ -207,7 +207,7 @@ const LabFacilities = () => {
                 </h5>
                 <p>
                   We prioritize safety with features including fume hoods, eye
-                  wash stations, and proper ventilation systems.
+                  wash stations, and proper ventilation systems. We try it
                 </p>
               </div>
               <div className="flex flex-col items-center justify-center space-y-3 md:items-start md:justify-start">
