@@ -143,4 +143,14 @@ export const adminNavigation = [
     href: "/admin/help-desk",
     Icon: Smile,
   },
+  {
+    label: "All Blog",
+    href: "/admin/all-blog",
+    Icon: Smile,
+  },
+  {
+    label: "Add Blog",
+    href: "/admin/add-blog",
+    Icon: Smile,
+  },
 ] as const;
