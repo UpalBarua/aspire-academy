@@ -2,15 +2,12 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { error } from "console";
 
 import {
   CalendarRange,
   Camera,
   FolderPen,
-  MailOpen,
   MessageCircleMore,
-  PhoneOff,
 } from "lucide-react";
 import React from "react";
 import { useForm } from "react-hook-form";
