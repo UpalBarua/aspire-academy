@@ -1,9 +1,19 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { blogService } from "./blog.service";
+import { blogValidation } from "./blog.validation";
 
-const createBlog = async (req: Request, res: Response) => {
+const createBlog = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const newBlog = req.body;
+    const validationResult = blogValidation.safeParse(newBlog);
+
+    if (!validationResult.success) {
+      return res.status(400).json({
+        success: false,
+        message: "Provided blog  data is invalid.",
+        error: validationResult.error,
+      });
+    }
     const result = await blogService.createBlogDb(newBlog);
 
     res.status(200).json({
@@ -12,7 +22,7 @@ const createBlog = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 

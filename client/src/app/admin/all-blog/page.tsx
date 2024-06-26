@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
 
@@ -51,18 +52,24 @@ const AllBlog = () => {
   ];
   return (
     <section>
-      <h1>Here are All Blog: </h1>
+      <h1 className="mb-4 ml-4 mt-4 text-2xl font-bold text-primary">
+        Here are All Blog:{" "}
+      </h1>
       <div className="ml-4 mr-4 grid grid-cols-2 gap-4">
         {allBlog?.map((blog) => (
-          <div key={blog?.id}>
+          <div key={blog?.id} className="rounded-md bg-secondary p-4">
+            <div className="flex justify-end gap-4">
+              <Button className="rounded-md font-bold">Edit</Button>
+              <Button className="rounded-md font-bold">Delete</Button>
+            </div>
             <Image
               height={400}
               width={400}
               src={blog?.image}
               alt="blog image"
             />
-            <h1>{blog?.title}</h1>
-            <h4>{blog?.date}</h4>
+            <h1 className="text-2xl font-bold">{blog?.title}</h1>
+            <h4 className="pb-2">{blog?.date}</h4>
             <p>{blog?.details}</p>
           </div>
         ))}

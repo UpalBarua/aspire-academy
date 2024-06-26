@@ -59,7 +59,7 @@ export default function AdminLayout({ children }: Readonly<AdminLayoutProps>) {
             </div>
           </div>
         </div>
-        <div className="container min-h-screen lg:fixed lg:left-[22rem] lg:top-0">
+        <div className="container min-h-screen lg:absolute lg:left-[22rem] lg:top-0">
           <div className="container fixed right-0 top-0 z-[10] flex min-h-[4rem] w-full items-center gap-x-4 bg-background/80 backdrop-blur-md backdrop-saturate-200 lg:hidden">
             <Button
               size="icon"

@@ -21,6 +21,27 @@ export const baseApi = createApi({
       }),
       invalidatesTags: ["helpDesk"],
     }),
+    getBlog: builder.query({
+      query: () => ({
+        url: "/help-desk",
+        method: "GET",
+      }),
+      providesTags: ["helpDesk"],
+    }),
+    addBlog: builder.query({
+      query: () => ({
+        url: "/help-desk",
+        method: "GET",
+      }),
+      providesTags: ["helpDesk"],
+    }),
+    deleteBlog: builder.mutation({
+      query: (id) => ({
+        url: `/help-desk/delete-help-desk/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["helpDesk"],
+    }),
   }),
   tagTypes: ["helpDesk"],
 });
