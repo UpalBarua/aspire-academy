@@ -10,9 +10,10 @@ import {
   Users,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 export default function CoursePage() {
   return (
@@ -66,10 +67,10 @@ export default function CoursePage() {
             </ul>
           </div>
           <div className="flex flex-col gap-4 pt-4 sm:flex-row lg:flex-col sm:[&>*]:flex-1 lg:[&>*]:flex-none">
-            <Button>
+            <Link className={buttonVariants({})} href="/checkout">
               <CreditCard className="h-4 w-4" />
               <span>Purchase Now</span>
-            </Button>
+            </Link>
             <Button variant="secondary">
               <ShoppingCart className="h-4 w-4" />
               <span>Add to Cart</span>
