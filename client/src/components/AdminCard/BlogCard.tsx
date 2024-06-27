@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import { useDeleteBlogMutation } from "@/redux/api/baseApi";
 import { TBlog } from "@/config/type";
+import { Trash2 } from "lucide-react";
 
 export default function BlogCard({ blog }: { blog: TBlog }) {
   const { title, _id, details, date, image, writer } = blog;
@@ -10,11 +11,12 @@ export default function BlogCard({ blog }: { blog: TBlog }) {
   return (
     <div className="rounded-md bg-secondary p-4">
       <div className="flex justify-end gap-4">
-        <Button className="rounded-md font-bold">Edit</Button>
+        <Button className="hidden rounded-md font-bold">Edit</Button>
         <Button
           onClick={() => deleteBlog(_id)}
-          className="rounded-md font-bold"
+          className="mb-2 flex items-center gap-2 rounded-md bg-red-600 font-bold text-white"
         >
+          <Trash2 />
           Delete
         </Button>
       </div>

@@ -40,7 +40,6 @@ const AddBlog = () => {
             title: data.title,
             date: data.date,
             image: imgData.data.url,
-            writer: data?.writer,
             details: data.details,
           };
           console.log(JSON.stringify(blogData));
@@ -61,7 +60,7 @@ const AddBlog = () => {
   };
 
   return (
-    <section className="mx-auto max-w-5xl">
+    <section>
       <div className="relative m-10 rounded-lg shadow">
         <div className="ml-2 lg:ml-8">
           <h1 className="border-l-2 p-2 text-3xl font-bold text-primary">
@@ -71,7 +70,7 @@ const AddBlog = () => {
         <div className="space-y-6 p-6">
           <form
             action="#"
-            className="rounded-md p-6 shadow-md shadow-secondary"
+            className="w-[700px] rounded-md p-6 shadow-md shadow-secondary"
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className="flex flex-col gap-4">
@@ -100,19 +99,6 @@ const AddBlog = () => {
                   name="date"
                   className="block w-full rounded-md border bg-secondary p-2.5 text-white"
                   placeholder="date"
-                />
-              </div>
-              <div>
-                <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
-                  <CalendarRange size={20} />
-                  writer
-                </label>
-                <Input
-                  {...register("writer", { required: true })}
-                  type="text"
-                  name="writer"
-                  className="block w-full rounded-md border bg-secondary p-2.5 text-white"
-                  placeholder="writer"
                 />
               </div>
               <div>
