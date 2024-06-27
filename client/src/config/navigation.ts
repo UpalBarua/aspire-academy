@@ -2,21 +2,20 @@ import { PersonStanding, Smile, Users, School } from "lucide-react";
 
 export const mainNavLinks = [
   {
-    label: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+    label: "Home",
+    href: "/",
+    description: "",
     subLinks: [],
   },
   {
-    label: "Hover Card",
+    label: "Courses",
     href: "",
     description:
       "For sighted users to preview content available behind a link.",
     subLinks: [
       {
-        label: "Progress",
-        href: "/docs/primitives/progress",
+        label: "All Courses",
+        href: "/courses",
         description:
           "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
       },
@@ -46,26 +45,26 @@ export const mainNavLinks = [
     ],
   },
   {
-    label: "Hover Card",
+    label: "Others",
     href: "",
     description:
       "For sighted users to preview content available behind a link.",
     subLinks: [
       {
-        label: "Progress",
-        href: "/docs/primitives/progress",
+        label: "Alumni",
+        href: "/alumni",
         description:
           "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
       },
       {
-        label: "Progress",
-        href: "/docs/primitives/progress",
+        label: "Events",
+        href: "/events",
         description:
           "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
       },
       {
-        label: "Scroll-area",
-        href: "/docs/primitives/scroll-area",
+        label: "Blog",
+        href: "/blog",
         description: "Visually or semantically separates content.",
       },
       {
@@ -78,8 +77,8 @@ export const mainNavLinks = [
     ],
   },
   {
-    label: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
+    label: "About Us",
+    href: "/about",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
     subLinks: [],

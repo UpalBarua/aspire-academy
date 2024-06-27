@@ -7,7 +7,7 @@ import { alumniRoutes } from "./modules/alumni/alumni.route";
 
 // routes
 import userRoutes from "./modules/user/user.route";
-
+import courseRoutes from "./modules/course/course.route";
 import { latestEventRoutes } from "./modules/latestEvent/latestEvent.route";
 import { blogRoutes } from "./modules/blog/blog.route";
 import { helpDeskRoute } from "./modules/helpDesk/helpDesk.route";
@@ -22,6 +22,7 @@ app.use(morgan("dev"));
 
 // routes
 app.use("/api/users", userRoutes);
+app.use("/api/courses", courseRoutes);
 app.use("/api/alumni", alumniRoutes);
 app.use("/api/management", managementRoutes);
 app.use("/api/latest-event", latestEventRoutes);

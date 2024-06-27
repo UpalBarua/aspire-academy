@@ -37,7 +37,7 @@ export function CourseSearch() {
     <form
       onClick={() => setIsSearchOpen(true)}
       className={cn(
-        "right-0 relatvive z-10 top-0 flex h-12 w-full flex-col items-center justify-start space-y-8 overflow-hidden rounded-[100vmin] border border-border/25 bg-card/90 px-4 text-sm text-secondary-foreground backdrop-blur-md backdrop-saturate-200 transition-all duration-200 md:absolute md:w-[20rem] lg:w-[28rem]",
+        "relatvive right-0 top-0 z-[5] flex h-12 w-full flex-col items-center justify-start space-y-8 overflow-hidden rounded-[100vmin] border border-border/25 bg-card/90 px-4 text-sm text-secondary-foreground backdrop-blur-md backdrop-saturate-200 transition-all duration-200 md:absolute md:w-[20rem] lg:w-[28rem]",
         {
           "h-[22rem] items-start rounded-3xl px-5 py-4 shadow-2xl md:w-[28rem]":
             isSearchOpen,
