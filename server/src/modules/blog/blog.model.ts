@@ -2,9 +2,6 @@ import { Schema, model } from "mongoose";
 import { TBlog } from "./blog.type";
 
 const blogSchema = new Schema<TBlog>({
-  id: {
-    type: String,
-  },
   title: {
     type: String,
     required: true,

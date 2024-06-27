@@ -54,33 +54,34 @@ export default function AdminLayout({ children }: Readonly<AdminLayoutProps>) {
             </div>
           </div>
         </div>
-      </div>
-      <div className="container min-h-screen lg:absolute lg:left-[22rem] lg:top-0 lg:w-[calc(100%-22rem)]">
-        <div className="container fixed right-0 top-0 z-[10] flex min-h-[4rem] w-full items-center gap-x-4 bg-background/80 backdrop-blur-md backdrop-saturate-200 lg:hidden">
-          <Button
-            size="icon"
-            variant="ghost"
-            className="h-10 w-10 rounded-lg lg:hidden"
-            onClick={() => setIsSidebarOpen((prev) => !prev)}
-          >
-            {isSidebarOpen ? (
-              <X className="h-8 w-8" />
-            ) : (
-              <Menu className="h-8 w-8" />
-            )}
-          </Button>
-          <Link className="flex items-center gap-x-3" href="/">
-            <Image
-              className="rounded-full"
-              src="/images/logo.png"
-              alt="logo"
-              height="35"
-              width="35"
-            />
-            <span className="text-lg font-bold tracking-tight">
-              Admin Dashboard
-            </span>
-          </Link>
+        <div className="container min-h-screen lg:absolute lg:left-[22rem] lg:top-0">
+          <div className="container fixed right-0 top-0 z-[10] flex min-h-[4rem] w-full items-center gap-x-4 bg-background/80 backdrop-blur-md backdrop-saturate-200 lg:hidden">
+            <Button
+              size="icon"
+              variant="ghost"
+              className="h-10 w-10 rounded-lg lg:hidden"
+              onClick={() => setIsSidebarOpen((prev) => !prev)}
+            >
+              {isSidebarOpen ? (
+                <X className="h-8 w-8" />
+              ) : (
+                <Menu className="h-8 w-8" />
+              )}
+            </Button>
+            <Link className="flex items-center gap-x-3" href="/">
+              <Image
+                className="rounded-full"
+                src="/images/logo.png"
+                alt="logo"
+                height="35"
+                width="35"
+              />
+              <span className="text-lg font-bold tracking-tight">
+                Admin Dashboard
+              </span>
+            </Link>
+          </div>
+          <div>{children}</div>
         </div>
         <div className="px-6 py-4">{children}</div>
       </div>

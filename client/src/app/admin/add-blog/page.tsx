@@ -2,6 +2,8 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { error } from "console";
+
 import {
   CalendarRange,
   Camera,
@@ -20,6 +22,46 @@ const AddBlog = () => {
     reset,
     formState: { errors },
   } = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      const image = data.image[0];
+      console.log(image);
+      const formData = new FormData();
+      formData.append("image", image);
+      const url =
+        "https://api.imgbb.com/1/upload?expiration=600&key=1f471dd54105935416929b8c41eb9f57";
+      fetch(url, {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((imgData) => {
+          console.log(imgData);
+
+          const blogData = {
+            title: data.title,
+            date: data.date,
+            image: imgData.data.url,
+            writer: data?.writer,
+            details: data.details,
+          };
+          console.log(JSON.stringify(blogData));
+          fetch("http://localhost:8080/api/blog/create-blog", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(blogData),
+          })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section className="mx-auto max-w-5xl">
       <div className="relative m-10 rounded-lg shadow">
@@ -32,6 +74,7 @@ const AddBlog = () => {
           <form
             action="#"
             className="rounded-md p-6 shadow-md shadow-secondary"
+            onSubmit={handleSubmit(onSubmit)}
           >
             <div className="flex flex-col gap-4">
               <div>
@@ -59,6 +102,19 @@ const AddBlog = () => {
                   name="date"
                   className="block w-full rounded-md border bg-secondary p-2.5 text-white"
                   placeholder="date"
+                />
+              </div>
+              <div>
+                <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
+                  <CalendarRange size={20} />
+                  writer
+                </label>
+                <Input
+                  {...register("writer", { required: true })}
+                  type="text"
+                  name="writer"
+                  className="block w-full rounded-md border bg-secondary p-2.5 text-white"
+                  placeholder="writer"
                 />
               </div>
               <div>
