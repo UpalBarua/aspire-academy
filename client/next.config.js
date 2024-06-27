@@ -14,6 +14,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "i.ibb.co",
       },
+      {
+        protocol: "https",
+        hostname: "www.codingdojo.com",
+      },
+      {
+        protocol: "https",
+        hostname: "github.com",
+      },
     ],
   },
 };

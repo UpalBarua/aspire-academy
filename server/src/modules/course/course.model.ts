@@ -31,10 +31,14 @@ const courseSchema = new mongoose.Schema<TCourse>(
         "Name can only contain letters, numbers, spaces, and punctuation (, . ! ? - _).",
       ],
     },
+    category: {
+      type: String,
+      required: true,
+    },
     coverPicture: {
       type: String,
       required: true,
-      trimg: true,
+      trim: true,
       validate: [validateUrl, "Cover photo must be a valid url."],
     },
     duration: {

@@ -11,7 +11,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { uploadImg } from "@/lib/upload-img";
 import {
   Select,
   SelectContent,
@@ -21,28 +20,29 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { categories } from "@/config";
+import { api, categories } from "@/config";
+import { uploadImg } from "@/lib/upload-img";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Textarea } from "./ui/textarea";
-import { useState } from "react";
 
 const tempInstructor = [
   {
     name: "Niaz Abir",
     picture: "https://github.com/shadcn.png",
-    about: "Senior engineer at xyz ltd // Mess Shovapoti // Famous chief",
+    title: "Senior engineer at xyz ltd // Mess Shovapoti // Famous chief",
   },
   {
     name: "Upal Barua",
     picture: "https://github.com/shadcn.png",
-    about: "Senior engineer at xyz ltd // Mess Shovapoti // Famous chief",
+    title: "Senior engineer at xyz ltd // Mess Shovapoti // Famous chief",
   },
   {
     name: "Umme Rumki",
     picture: "https://github.com/shadcn.png",
-    about: "Senior engineer at xyz ltd // Mess Shovapoti // Famous chief",
+    title: "Senior engineer at xyz ltd // Mess Shovapoti // Famous chief",
   },
 ] as const;
 
@@ -57,11 +57,6 @@ const courseFormSchema = z.object({
     .trim()
     .min(50, { message: "Description must be at least 50 characters long." })
     .max(500, { message: "Description cannot be longer than 500 characters." }),
-  coverPicture: z
-    .string()
-    .trim()
-    .url({ message: "Cover photo must be a valid url." })
-    .default("https://github.com/shadcn.png"),
   duration: z
     .string()
     .min(0, { message: "Duration must be more than 0 Months." })
@@ -85,14 +80,64 @@ type CourseForm = z.infer<typeof courseFormSchema>;
 export function CourseForm() {
   const [category, setCategory] = useState("");
   const [instructor, setInstructor] = useState({});
+  const [coverImg, setCoverImg] = useState<File | null>(null);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<CourseForm>({
     resolver: zodResolver(courseFormSchema),
     defaultValues: {},
   });
 
-  function onSubmit(values: CourseForm) {
-    console.log(values);
+  async function onSubmit({
+    name,
+    duration,
+    description,
+    regularPrice,
+    enrollmentEnd,
+    discountedPrice,
+    enrollmentStart,
+  }: CourseForm) {
+    try {
+      setIsSubmitting(true);
+
+      if (!coverImg) {
+        throw new Error("Conver image is required.");
+      }
+
+      const imgUrl = await uploadImg(coverImg);
+
+      const newCourse = {
+        name,
+        description,
+        category,
+        coverPicture: imgUrl,
+        duration: Number(duration),
+        price: {
+          regular: Number(regularPrice),
+          discounted: Number(discountedPrice),
+        },
+        instructor: tempInstructor.find(({ name }) => name === instructor),
+        enrollment: {
+          start: enrollmentStart,
+          end: enrollmentEnd,
+        },
+      };
+
+      await fetch(`${api}/courses/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newCourse),
+      }).then((res) => res.json());
+
+      form.reset();
+    } catch (error) {
+      console.log(`Failed to create new course: ${error}`);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -109,7 +154,11 @@ export function CourseForm() {
                 placeholder="select picture"
                 type="file"
                 accept="image/*"
-                // onChange={(e) => uploadImg(e.target.files[0])}
+                onChange={(e) => {
+                  if (e.target.files) {
+                    setCoverImg(e.target.files[0]);
+                  }
+                }}
               />
             </FormControl>
             <FormMessage />
@@ -241,7 +290,7 @@ export function CourseForm() {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Instructor</SelectLabel>
-                    {tempInstructor.map(({ name, about, picture }) => (
+                    {tempInstructor.map(({ name, title, picture }) => (
                       <SelectItem value={name}>
                         <div className="flex items-center gap-x-4 px-4 py-3">
                           <Avatar className="h-16 w-16">
@@ -250,7 +299,7 @@ export function CourseForm() {
                           </Avatar>
                           <div>
                             <h4 className="font-medium">{name}</h4>
-                            <p className="max-w-[16rem]">{about}</p>
+                            <p className="max-w-[16rem]">{title}</p>
                           </div>
                         </div>
                       </SelectItem>
@@ -261,7 +310,9 @@ export function CourseForm() {
             </FormControl>
             <FormMessage />
           </FormItem>
-          <Button type="submit">Submit</Button>
+          <Button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Submitting" : "Submit"}
+          </Button>
         </div>
       </form>
     </Form>

@@ -1,27 +1,30 @@
-export const uploadImg = async (imageData: File) => {
-  console.log("fired");
+export const uploadImg = async (imgFile: File) => {
   try {
-    if (!imageData) {
-      throw new Error("No imageData provided to the uploadImage() function.");
+    if (!imgFile) {
+      throw new Error("No imgFile provided to the uploadImage() function.");
     }
 
     const formData = new FormData();
-    formData.append("image", imageData);
+    formData.append("image", imgFile);
 
-    console.log(formData);
-
-    const response = await fetch(
+    const data = await fetch(
       `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API_KEY}`,
       {
         method: "POST",
         body: formData,
       },
-    );
+    ).then((res) => res.json());
 
-    console.log(response);
+    if (!data.success) {
+      throw new Error(`Failed to upload image.`);
+    }
 
-    throw new Error("Failed to upload image: No display URL returned.");
+    return data.data.display_url;
   } catch (error) {
-    throw new Error(`Failed to upload image: ${error.message}`);
+    if (error instanceof Error) {
+      throw new Error(`Failed to upload image: ${error.message}`);
+    }
+
+    throw new Error("Failed to upload image.");
   }
 };

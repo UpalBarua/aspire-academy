@@ -20,6 +20,7 @@ export const newCourseSchema = z.object({
       message:
         "Description can only contain letters, numbers, spaces, and punctuation (, . ! ? - _).",
     }),
+  category: z.string(),
   coverPicture: z
     .string()
     .trim()
