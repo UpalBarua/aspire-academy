@@ -147,10 +147,19 @@ export const adminNavigation = [
     href: "/admin/all-blog",
     Icon: Smile,
   },
-
   {
     label: "All Event",
     href: "/admin/all-event",
+    Icon: Smile,
+  },
+  {
+    label: "All Testimonial",
+    href: "/admin/all-testimonial",
+    Icon: Smile,
+  },
+  {
+    label: "All alumni",
+    href: "/admin/all-alumni",
     Icon: Smile,
   },
 ] as const;
