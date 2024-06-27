@@ -2,7 +2,7 @@
 import React from "react";
 import { TEvent } from "@/config/type";
 import { useGetEventQuery } from "@/redux/api/baseApi";
-import EventCard from "@/components/AdminCard/eventCard";
+import EventCard from "@/components/AdminCard/EventCard";
 
 const AllEvent = () => {
   const { data, isLoading } = useGetEventQuery("");
