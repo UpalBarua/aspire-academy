@@ -1,9 +1,23 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { latestEventService } from "./latestEvent.service";
+import { latestEventValidation } from "./latestEvent.validation";
 
-const createLatestEvent = async (req: Request, res: Response) => {
+const createLatestEvent = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const newLatestEvent = req.body;
+    const validationResult = latestEventValidation.safeParse(newLatestEvent);
+
+    if (!validationResult.success) {
+      return res.status(400).json({
+        success: false,
+        message: "Provided latest event   data is invalid.",
+        error: validationResult.error,
+      });
+    }
     const result = await latestEventService.createLatestEventDb(newLatestEvent);
 
     res.status(200).json({
@@ -12,7 +26,7 @@ const createLatestEvent = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
