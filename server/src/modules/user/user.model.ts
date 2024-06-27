@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
+import { validateEmail, validateName } from "../../configs/validation";
 import type { TUser } from "./user.type";
-import { validateEmail, validateName } from "./user.validation";
 
 const userSchema = new mongoose.Schema<TUser>({
   name: {
@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema<TUser>({
   },
 });
 
-userSchema.pre("save", async function(next) {
+userSchema.pre("save", async function (next) {
   const user = this;
 
   if (user.isNew || user.isModified("password")) {

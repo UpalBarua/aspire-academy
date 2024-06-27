@@ -23,6 +23,8 @@ import {
   Users,
 } from "lucide-react";
 
+export const api = "http://localhost:8080/api";
+
 export const categories = [
   { category: "Web & App Development", Icon: Code },
   { category: "Product Management & Design", Icon: Settings },
