@@ -1,16 +1,9 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { useDeleteHelpDeskMutation } from "@/redux/api/baseApi";
-type THelpDesk = {
-  _id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  number: string;
-  message: string;
-};
+import { THelpDesk } from "@/config/type";
 
-const HelpDeskCard = ({ helpDesk }: { helpDesk: THelpDesk }) => {
+export default function HelpDeskCard({ helpDesk }: { helpDesk: THelpDesk }) {
   const { firstName, lastName, email, number, message, _id } = helpDesk;
   const [deleteHelpDesk] = useDeleteHelpDeskMutation();
   return (
@@ -32,6 +25,4 @@ const HelpDeskCard = ({ helpDesk }: { helpDesk: THelpDesk }) => {
       </Button>
     </div>
   );
-};
-
-export default HelpDeskCard;
+}

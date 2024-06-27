@@ -35,12 +35,28 @@ export const baseApi = createApi({
       }),
       invalidatesTags: ["blogs"],
     }),
+    getEvent: builder.query({
+      query: () => ({
+        url: "/latest-event",
+        method: "GET",
+      }),
+      providesTags: ["events"],
+    }),
+    deleteEvent: builder.mutation({
+      query: (id) => ({
+        url: `/latest-event/delete-latest-event/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["events"],
+    }),
   }),
-  tagTypes: ["helpDesk", "blogs"],
+  tagTypes: ["helpDesk", "blogs", "events"],
 });
 export const {
   useGetHelpDeskQuery,
   useDeleteHelpDeskMutation,
   useGetBlogQuery,
   useDeleteBlogMutation,
+  useGetEventQuery,
+  useDeleteEventMutation,
 } = baseApi;
