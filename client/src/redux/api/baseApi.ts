@@ -23,26 +23,24 @@ export const baseApi = createApi({
     }),
     getBlog: builder.query({
       query: () => ({
-        url: "/help-desk",
+        url: "/blog",
         method: "GET",
       }),
-      providesTags: ["helpDesk"],
-    }),
-    addBlog: builder.query({
-      query: () => ({
-        url: "/help-desk",
-        method: "GET",
-      }),
-      providesTags: ["helpDesk"],
+      providesTags: ["blogs"],
     }),
     deleteBlog: builder.mutation({
       query: (id) => ({
-        url: `/help-desk/delete-help-desk/${id}`,
+        url: `/blog/delete-blog/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["helpDesk"],
+      invalidatesTags: ["blogs"],
     }),
   }),
-  tagTypes: ["helpDesk"],
+  tagTypes: ["helpDesk", "blogs"],
 });
-export const { useGetHelpDeskQuery, useDeleteHelpDeskMutation } = baseApi;
+export const {
+  useGetHelpDeskQuery,
+  useDeleteHelpDeskMutation,
+  useGetBlogQuery,
+  useDeleteBlogMutation,
+} = baseApi;
