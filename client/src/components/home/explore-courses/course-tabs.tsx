@@ -4,10 +4,16 @@ import { categories } from "@/config";
 import type { TCourse } from "@/types";
 
 async function getAllCourses() {
-  const data = await fetch("http://localhost:8080/api/courses").then((res) =>
-    res.json(),
-  );
-  return data.data;
+  try {
+    const data = await fetch("http://localhost:8080/api/courses").then((res) =>
+      res.json(),
+    );
+
+    return data.data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 }
 
 export async function CourseTabs() {
