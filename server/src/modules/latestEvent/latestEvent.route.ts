@@ -5,6 +5,9 @@ const router = express.Router();
 
 router.post("/create-latest-event", latestEventController.createLatestEvent);
 router.get("/", latestEventController.getLatestEvent);
-router.delete("/:id", latestEventController.deleteLatestEvent);
+router.delete(
+  "/delete-latest-event/:id",
+  latestEventController.deleteLatestEvent
+);
 
 export const latestEventRoutes = router;
