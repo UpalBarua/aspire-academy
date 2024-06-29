@@ -1,7 +1,14 @@
 import bcrypt from "bcryptjs";
 import { NextFunction, Request, Response } from "express";
-import { createNewUser, getUserByEmail } from "./user.service";
+import { isValidObjectId } from "mongoose";
+import {
+  createNewEnrollment,
+  createNewUser,
+  getUserByEmail,
+  findUserById,
+} from "./user.service";
 import { newUserSchema } from "./user.validation";
+import { findAllUser } from "./user.service";
 
 export const registerUser = async (
   req: Request,
@@ -93,6 +100,115 @@ export const loginUser = async (
       success: true,
       message: "Logged in user successfully.",
       data: sanitizedUser,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const enrollCourse = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { userId } = req.params;
+    const { courseId } = req.body;
+
+    if (!isValidObjectId(userId)) {
+      return res.status(400).json({
+        success: false,
+        message: "Provided user id is invalid.",
+        error: null,
+      });
+    }
+
+    if (!isValidObjectId(courseId)) {
+      return res.status(400).json({
+        success: false,
+        message: "Provided course id is invalid.",
+        error: null,
+      });
+    }
+
+    const foundUser = await findUserById(userId!);
+
+    if (!foundUser) {
+      return res.status(401).json({
+        success: false,
+        message: "User not found for the provided id.",
+        error: null,
+      });
+    }
+
+    await createNewEnrollment(userId!, courseId);
+
+    res.status(200).json({
+      success: true,
+      message: "Enrolled course successfully.",
+      data: null,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getUserById = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { userId } = req.params;
+
+    if (!isValidObjectId(userId)) {
+      return res.status(400).json({
+        success: false,
+        message: "Provided user id is invalid.",
+        error: null,
+      });
+    }
+
+    const foundUser = await findUserById(userId!);
+
+    if (!foundUser) {
+      return res.status(401).json({
+        success: false,
+        message: "User not found for the provided id.",
+        error: null,
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "User retrieved successfully.",
+      data: foundUser,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getAllUsers = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const foundUsers = await findAllUser();
+
+    if (!foundUsers) {
+      return res.status(401).json({
+        success: false,
+        message: "Users not found.",
+        error: null,
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Users retrieved successfully.",
+      data: foundUsers,
     });
   } catch (error) {
     next(error);

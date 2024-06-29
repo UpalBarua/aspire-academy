@@ -19,6 +19,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }).then((res) => res.json());
 
           if (res.success) {
+            console.log(res.data);
             return res.data;
           }
 

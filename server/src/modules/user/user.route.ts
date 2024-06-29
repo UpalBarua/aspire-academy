@@ -5,5 +5,6 @@ const router = Router();
 
 router.post("/register", registerUser);
 router.post("/login", loginUser);
+router.patch("/enroll/:userId", loginUser);
 
 export default router;
