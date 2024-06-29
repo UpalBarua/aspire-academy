@@ -1,7 +1,8 @@
-import { Calendar } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import Link from "next/link";
 
 import { EventCard } from "@/components/event-card";
+import { buttonVariants } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { events } from "@/config";
 
@@ -38,6 +39,19 @@ export function RecentEvents() {
             <EventCard key={event.title} {...event} />
           ))}
         </div>
+      </div>
+      <div className="mt-10 flex items-center justify-center">
+        <Link
+          href="/courses"
+          className={buttonVariants({
+            variant: "outline",
+            size: "lg",
+            className: "w-[15rem] border-border/25 text-base",
+          })}
+        >
+          <span>View All</span>
+          <ArrowRight className="h-5 w-5" />
+        </Link>
       </div>
     </section>
   );
