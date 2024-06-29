@@ -1,89 +1,75 @@
-import { PersonStanding, Smile, Users, School } from "lucide-react";
+import { PersonStanding, School, Smile, Users } from "lucide-react";
 
-export const mainNavLinks = [
+type MainNavLink = {
+  label: string;
+  href?: string;
+  description?: string;
+  subLinks?: {
+    label: string;
+    href: string;
+    description: string;
+  }[];
+};
+
+// TODO: href depends on the subLinks array
+
+export const mainNavLinks: MainNavLink[] = [
   {
     label: "Home",
     href: "/",
-    description: "",
-    subLinks: [],
   },
   {
     label: "Courses",
-    href: "",
-    description:
-      "For sighted users to preview content available behind a link.",
-    subLinks: [
-      {
-        label: "All Courses",
-        href: "/courses",
-        description:
-          "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-      },
-      {
-        label: "Scroll-area",
-        href: "/docs/primitives/scroll-area",
-        description: "Visually or semantically separates content.",
-      },
-      {
-        label: "Tabs",
-        href: "/docs/primitives/tabs",
-        description:
-          "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-      },
-      {
-        label: "Tabs",
-        href: "/docs/primitives/tabs",
-        description:
-          "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-      },
-      {
-        label: "Tooltip",
-        href: "/docs/primitives/tooltip",
-        description:
-          "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-      },
-    ],
+    href: "/courses",
   },
   {
-    label: "Others",
-    href: "",
-    description:
-      "For sighted users to preview content available behind a link.",
+    label: "Community",
+    description: "Engage with other members and access exclusive content.",
     subLinks: [
       {
         label: "Alumni",
         href: "/alumni",
         description:
-          "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+          "Connect with past graduates and see their success stories.",
+      },
+      {
+        label: "Help Desk",
+        href: "/help-desk",
+        description: "Get support for any issues or questions you have.",
+      },
+      {
+        label: "Contact Us",
+        href: "/contact-us",
+        description: "Reach out to us for any inquiries or assistance.",
+      },
+    ],
+  },
+  {
+    label: "Resources",
+    subLinks: [
+      {
+        label: "Blog",
+        href: "/blog",
+        description: "Read articles and updates from our team and community.",
+      },
+      {
+        label: "Lab Facilities",
+        href: "/lab-facilities",
+        description:
+          "Explore the state-of-the-art facilities available to students.",
       },
       {
         label: "Events",
         href: "/events",
-        description:
-          "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-      },
-      {
-        label: "Blog",
-        href: "/blog",
-        description: "Visually or semantically separates content.",
-      },
-      {
-        label: "Alert Dialog",
-        href: "/docs/primitives/alert-dialog",
-        description:
-          "A modal dialog that interrupts the user with important content and expects a response.",
-        subLinks: [],
+        description: "Stay updated with our upcoming events and workshops.",
       },
     ],
   },
   {
     label: "About Us",
-    href: "/about",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-    subLinks: [],
+    href: "/about-us",
   },
-] as const;
+];
 
 export const adminNavigation = [
   {

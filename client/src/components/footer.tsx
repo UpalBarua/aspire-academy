@@ -32,7 +32,8 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
           {mainNavLinks.map(
             ({ subLinks, label }) =>
-              subLinks.length !== 0 && (
+              subLinks &&
+              subLinks?.length && (
                 <div className="flex flex-col gap-y-2">
                   <h4 className="text-lg font-medium">{label}</h4>
                   {subLinks.map(({ label, href }) => (
