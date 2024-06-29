@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { MainNavMenu } from "./main-nav-menu";
 import { MobileNav } from "./mobile-nav";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export function Navbar() {
   return (
@@ -20,8 +21,11 @@ export function Navbar() {
             Aspire Academy
           </span>
         </Link>
-        <MainNavMenu />
-        <MobileNav />
+        <div className="flex items-center gap-x-4">
+          <MainNavMenu />
+          <ThemeToggle />
+          <MobileNav />
+        </div>
       </div>
     </header>
   );
