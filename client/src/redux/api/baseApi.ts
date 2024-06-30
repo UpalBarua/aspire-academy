@@ -21,6 +21,14 @@ export const baseApi = createApi({
       }),
       invalidatesTags: ["helpDesk"],
     }),
+    createBlog: builder.mutation({
+      query: (newBlog) => ({
+        url: "/blog/create-blog",
+        method: "POST",
+        body: newBlog,
+      }),
+      invalidatesTags: ["blog"],
+    }),
     getBlog: builder.query({
       query: () => ({
         url: "/blog",
@@ -34,6 +42,14 @@ export const baseApi = createApi({
         method: "DELETE",
       }),
       invalidatesTags: ["blog"],
+    }),
+    createEvent: builder.mutation({
+      query: (newManagement) => ({
+        url: "/latest-event/create-latest-event",
+        method: "POST",
+        body: newManagement,
+      }),
+      invalidatesTags: ["management"],
     }),
     getEvent: builder.query({
       query: () => ({
@@ -93,14 +109,45 @@ export const baseApi = createApi({
       }),
       invalidatesTags: ["alumni"],
     }),
+    createManagement: builder.mutation({
+      query: (newManagement) => ({
+        url: "/management/create-management",
+        method: "POST",
+        body: newManagement,
+      }),
+      invalidatesTags: ["management"],
+    }),
+    getManagement: builder.query({
+      query: () => ({
+        url: "/management",
+        method: "GET",
+      }),
+      providesTags: ["management"],
+    }),
+    deleteManagement: builder.mutation({
+      query: (id) => ({
+        url: `/management/delete-management/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["management"],
+    }),
   }),
-  tagTypes: ["helpDesk", "blog", "event", "testimonial", "alumni"],
+  tagTypes: [
+    "helpDesk",
+    "blog",
+    "event",
+    "testimonial",
+    "alumni",
+    "management",
+  ],
 });
 export const {
   useGetHelpDeskQuery,
   useDeleteHelpDeskMutation,
+  useCreateBlogMutation,
   useGetBlogQuery,
   useDeleteBlogMutation,
+  useCreateEventMutation,
   useGetEventQuery,
   useDeleteEventMutation,
   useGetTestimonialQuery,
@@ -109,4 +156,7 @@ export const {
   useCreateAlumniMutation,
   useGetAlumniQuery,
   useDeleteAlumniMutation,
+  useGetManagementQuery,
+  useCreateManagementMutation,
+  useDeleteManagementMutation,
 } = baseApi;

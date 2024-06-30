@@ -35,3 +35,9 @@ export type TAlumni = {
   batchNo: string;
   image: string;
 };
+export type TManagement = {
+  _id: string;
+  name: string;
+  position: string;
+  image: string;
+};
