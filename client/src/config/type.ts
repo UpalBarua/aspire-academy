@@ -28,3 +28,10 @@ export type TTestimonial = {
   image: string;
   review: string;
 };
+export type TAlumni = {
+  _id: string;
+  name: string;
+  course: string;
+  batchNo: string;
+  image: string;
+};

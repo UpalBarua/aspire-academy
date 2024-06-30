@@ -71,8 +71,30 @@ export const baseApi = createApi({
       }),
       invalidatesTags: ["testimonial"],
     }),
+    createAlumni: builder.mutation({
+      query: (newAlumni) => ({
+        url: "/alumni/create-alumni",
+        method: "POST",
+        body: newAlumni,
+      }),
+      invalidatesTags: ["alumni"],
+    }),
+    getAlumni: builder.query({
+      query: () => ({
+        url: "/alumni",
+        method: "GET",
+      }),
+      providesTags: ["alumni"],
+    }),
+    deleteAlumni: builder.mutation({
+      query: (id) => ({
+        url: `/alumni/delete-alumni/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["alumni"],
+    }),
   }),
-  tagTypes: ["helpDesk", "blog", "event", "testimonial"],
+  tagTypes: ["helpDesk", "blog", "event", "testimonial", "alumni"],
 });
 export const {
   useGetHelpDeskQuery,
@@ -84,4 +106,7 @@ export const {
   useGetTestimonialQuery,
   useDeleteTestimonialMutation,
   useCreateTestimonialMutation,
+  useCreateAlumniMutation,
+  useGetAlumniQuery,
+  useDeleteAlumniMutation,
 } = baseApi;

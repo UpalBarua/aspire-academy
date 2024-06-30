@@ -6,12 +6,12 @@ const alumniSchema = new Schema<TAlumni>({
     type: String,
     required: true,
   },
-  course_name: {
+  course: {
     type: String,
     required: true,
   },
-  batch: {
-    type: Number,
+  batchNo: {
+    type: String,
     required: true,
   },
   image: {
