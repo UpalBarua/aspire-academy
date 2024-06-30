@@ -14,10 +14,6 @@ const blogSchema = new Schema<TBlog>({
     type: String,
     required: true,
   },
-  writer: {
-    type: String,
-    required: true,
-  },
   details: {
     type: String,
     required: true,

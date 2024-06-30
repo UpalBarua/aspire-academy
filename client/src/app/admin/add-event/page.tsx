@@ -60,8 +60,8 @@ const AddEvent = () => {
   };
 
   return (
-    <section className="mx-auto max-w-5xl">
-      <div className="relative m-10 rounded-lg shadow">
+    <section>
+      <div className="m-10 rounded-lg shadow">
         <div className="ml-2 lg:ml-8">
           <h1 className="border-l-2 p-2 text-3xl font-bold text-primary">
             Add Your Event
@@ -70,7 +70,7 @@ const AddEvent = () => {
         <div className="space-y-6 p-6">
           <form
             action="#"
-            className="rounded-md p-6 shadow-md shadow-secondary"
+            className="w-[700px] rounded-md p-6 shadow-md shadow-secondary"
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className="flex flex-col gap-4">
