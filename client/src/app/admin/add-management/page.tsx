@@ -2,25 +2,28 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useCreateBlogMutation } from "@/redux/api/baseApi";
 import {
-  CalendarRange,
+  useCreateManagementMutation,
+  useCreateTestimonialMutation,
+} from "@/redux/api/baseApi";
+
+import {
   Camera,
   FolderPen,
+  GraduationCap,
   MessageCircleMore,
 } from "lucide-react";
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const AddBlog = () => {
+const AddManagement = () => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-
-  const [createBlog] = useCreateBlogMutation();
+  const [createManagement] = useCreateManagementMutation();
 
   const onSubmit = async (data) => {
     try {
@@ -36,16 +39,15 @@ const AddBlog = () => {
       })
         .then((res) => res.json())
         .then((imgData) => {
-          const blogData = {
-            title: data.title,
-            date: data.date,
+          const managementData = {
+            name: data.name,
+            position: data.position,
             image: imgData.data.url,
-            details: data.details,
           };
 
-          createBlog(blogData);
+          createManagement(managementData);
+          reset();
         });
-      reset();
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +58,7 @@ const AddBlog = () => {
       <div className="relative m-10 rounded-lg shadow">
         <div className="ml-2 lg:ml-8">
           <h1 className="border-l-2 p-2 text-3xl font-bold text-primary">
-            Add Your Blog
+            Add Your Management
           </h1>
         </div>
         <div className="space-y-6 p-6">
@@ -69,28 +71,28 @@ const AddBlog = () => {
               <div>
                 <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
                   <FolderPen size={20} />
-                  Title
+                  name
                 </label>
                 <Input
-                  {...register("title", { required: true })}
+                  {...register("name", { required: true })}
                   type="text"
-                  name="title"
+                  name="name"
                   className="block w-full rounded-md border bg-secondary p-2.5 text-white"
-                  placeholder="title"
+                  placeholder="name"
                 />
               </div>
 
               <div>
                 <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
-                  <CalendarRange size={20} />
-                  date
+                  <GraduationCap size={20} />
+                  position
                 </label>
                 <Input
-                  {...register("date", { required: true })}
-                  type="date"
-                  name="date"
+                  {...register("position", { required: true })}
+                  type="text"
+                  name="position"
                   className="block w-full rounded-md border bg-secondary p-2.5 text-white"
-                  placeholder="date"
+                  placeholder="position"
                 />
               </div>
               <div>
@@ -105,18 +107,6 @@ const AddBlog = () => {
                   className="block w-full rounded-md border bg-secondary p-2.5 text-white"
                   placeholder="image"
                 />
-              </div>
-              <div>
-                <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
-                  <MessageCircleMore size={22} />
-                  details
-                </label>
-                <Textarea
-                  {...register("details", { required: true })}
-                  name="details"
-                  className="block w-full rounded-lg border bg-secondary p-4"
-                  placeholder="details"
-                ></Textarea>
               </div>
             </div>
             <div>
@@ -134,4 +124,4 @@ const AddBlog = () => {
   );
 };
 
-export default AddBlog;
+export default AddManagement;
