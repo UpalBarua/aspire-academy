@@ -26,31 +26,53 @@ export const baseApi = createApi({
         url: "/blog",
         method: "GET",
       }),
-      providesTags: ["blogs"],
+      providesTags: ["blog"],
     }),
     deleteBlog: builder.mutation({
       query: (id) => ({
         url: `/blog/delete-blog/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["blogs"],
+      invalidatesTags: ["blog"],
     }),
     getEvent: builder.query({
       query: () => ({
         url: "/latest-event",
         method: "GET",
       }),
-      providesTags: ["events"],
+      providesTags: ["event"],
     }),
     deleteEvent: builder.mutation({
       query: (id) => ({
         url: `/latest-event/delete-latest-event/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["events"],
+      invalidatesTags: ["event"],
+    }),
+    getTestimonial: builder.query({
+      query: () => ({
+        url: "/testimonial",
+        method: "GET",
+      }),
+      providesTags: ["testimonial"],
+    }),
+    deleteTestimonial: builder.mutation({
+      query: (id) => ({
+        url: `/testimonial/delete-testimonial/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["testimonial"],
+    }),
+    createTestimonial: builder.mutation({
+      query: (newTestimonial) => ({
+        url: "/testimonial/create-testimonial",
+        method: "POST",
+        body: newTestimonial,
+      }),
+      invalidatesTags: ["testimonial"],
     }),
   }),
-  tagTypes: ["helpDesk", "blogs", "events"],
+  tagTypes: ["helpDesk", "blog", "event", "testimonial"],
 });
 export const {
   useGetHelpDeskQuery,
@@ -59,4 +81,7 @@ export const {
   useDeleteBlogMutation,
   useGetEventQuery,
   useDeleteEventMutation,
+  useGetTestimonialQuery,
+  useDeleteTestimonialMutation,
+  useCreateTestimonialMutation,
 } = baseApi;

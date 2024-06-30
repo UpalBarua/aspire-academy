@@ -21,3 +21,10 @@ export type TEvent = {
   image: string;
   details: string;
 };
+export type TTestimonial = {
+  _id: string;
+  name: string;
+  batch: string;
+  image: string;
+  review: string;
+};
