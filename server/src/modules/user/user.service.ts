@@ -19,5 +19,6 @@ export const createNewEnrollment = async (userId: string, courseId: string) => {
   return await User.updateOne(
     { _id: userId },
     { $push: { enrolledCourses: courseId } },
+    { upsert: true },
   );
 };

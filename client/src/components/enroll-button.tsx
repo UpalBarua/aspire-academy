@@ -12,13 +12,16 @@ export function EnrollButton({
   userId,
 }: Readonly<EnrollButtonProps>) {
   async function enrollCourse() {
-    const data = await fetch(`http://localhost:8080/enroll/${userId}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const data = await fetch(
+      `http://localhost:8080/api/users/enroll/${userId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ courseId }),
       },
-      body: JSON.stringify({ courseId }),
-    }).then((res) => res.json());
+    ).then((res) => res.json());
 
     console.log(userId, courseId);
     console.log(data);
