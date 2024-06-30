@@ -1,11 +1,12 @@
 import bcrypt from "bcryptjs";
+import z from "zod";
 import { NextFunction, Request, Response } from "express";
 import { isValidObjectId } from "mongoose";
 import {
   createNewEnrollment,
   createNewUser,
-  getUserByEmail,
   findUserById,
+  findUserByEmail,
 } from "./user.service";
 import { newUserSchema } from "./user.validation";
 import { findAllUser } from "./user.service";
@@ -28,7 +29,7 @@ export const registerUser = async (
       });
     }
 
-    const existingUser = await getUserByEmail(newUser.email);
+    const existingUser = await findUserByEmail(newUser.email);
 
     if (existingUser) {
       return res.status(400).json({
@@ -71,7 +72,7 @@ export const loginUser = async (
       });
     }
 
-    const foundUser = await getUserByEmail(credentials.email);
+    const foundUser = await findUserByEmail(credentials.email);
 
     if (!foundUser) {
       return res.status(401).json({
@@ -153,23 +154,26 @@ export const enrollCourse = async (
   }
 };
 
-export const getUserById = async (
+export const getUserByEmail = async (
   req: Request,
   res: Response,
   next: NextFunction,
 ) => {
   try {
-    const { userId } = req.params;
+    const { email } = req.params;
 
-    if (!isValidObjectId(userId)) {
+    const validationResult = z.string().email().safeParse(email);
+
+    if (!validationResult.success) {
       return res.status(400).json({
         success: false,
-        message: "Provided user id is invalid.",
-        error: null,
+        message: "Provided user email is invalid.",
+        error: validationResult.error,
       });
     }
 
-    const foundUser = await findUserById(userId!);
+    const foundUser = await findUserByEmail(email!);
+    const { password, ...sanitizedUser } = foundUser!;
 
     if (!foundUser) {
       return res.status(401).json({
@@ -182,7 +186,7 @@ export const getUserById = async (
     res.status(200).json({
       success: true,
       message: "User retrieved successfully.",
-      data: foundUser,
+      data: sanitizedUser,
     });
   } catch (error) {
     next(error);
@@ -205,10 +209,12 @@ export const getAllUsers = async (
       });
     }
 
+    const sanitizedUsers = foundUsers.map(({ password, ...rest }) => rest);
+
     res.status(200).json({
       success: true,
       message: "Users retrieved successfully.",
-      data: foundUsers,
+      data: sanitizedUsers,
     });
   } catch (error) {
     next(error);

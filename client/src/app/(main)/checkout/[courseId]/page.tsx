@@ -58,7 +58,7 @@ export default async function CheckoutPage({
 
   const courseDetails: TCourse = await getCourseDetails(params.courseId);
   const userDetails = await getUserDetails(session?.user?.email);
-  console.log(userDetails);
+  console.log({ userDetails });
 
   const {
     name: courseName,

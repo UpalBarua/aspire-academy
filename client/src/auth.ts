@@ -35,4 +35,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     newUser: "/register",
     signIn: "/login",
   },
+  callbacks: {
+    authorized({ auth }) {
+      console.log(auth);
+      return true;
+    },
+  },
 });

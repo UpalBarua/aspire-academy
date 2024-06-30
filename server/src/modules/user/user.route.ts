@@ -1,7 +1,7 @@
 import { Router } from "express";
 import {
   getAllUsers,
-  getUserById,
+  getUserByEmail,
   loginUser,
   registerUser,
 } from "./user.controller";
@@ -11,7 +11,7 @@ const router = Router();
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.patch("/enroll/:userId", loginUser);
-router.get("/user/:userId", getUserById);
-router.get("/user", getAllUsers);
+router.get("/:email", getUserByEmail);
+router.get("/", getAllUsers);
 
 export default router;

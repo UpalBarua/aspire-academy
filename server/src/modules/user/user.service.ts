@@ -1,7 +1,7 @@
 import User from "./user.model";
 import type { TUser } from "./user.type";
 
-export const getUserByEmail = async (email: string) =>
+export const findUserByEmail = async (email: string) =>
   await User.findOne({ email }).lean();
 
 export const findUserById = async (userId: string) =>
