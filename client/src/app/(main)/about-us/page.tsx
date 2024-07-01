@@ -1,52 +1,60 @@
+"use client";
+import { useGetManagementQuery } from "@/redux/api/baseApi";
 import { BookOpenText, ServerCog } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
 const AboutUs = () => {
-  const allManagement = [
-    {
-      id: 1,
-      name: "upal barua",
-      position: "founder",
-      image:
-        "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      id: 1,
-      name: "upal barua",
-      position: "founder",
-      image:
-        "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      id: 1,
-      name: "upal barua",
-      position: "founder",
-      image:
-        "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      id: 1,
-      name: "upal barua",
-      position: "founder",
-      image:
-        "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      id: 1,
-      name: "upal barua",
-      position: "founder",
-      image:
-        "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      id: 1,
-      name: "upal barua",
-      position: "founder",
-      image:
-        "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-  ];
+  // const allManagement = [
+  //   {
+  //     id: 1,
+  //     name: "upal barua",
+  //     position: "founder",
+  //     image:
+  //       "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   },
+  //   {
+  //     id: 1,
+  //     name: "upal barua",
+  //     position: "founder",
+  //     image:
+  //       "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   },
+  //   {
+  //     id: 1,
+  //     name: "upal barua",
+  //     position: "founder",
+  //     image:
+  //       "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   },
+  //   {
+  //     id: 1,
+  //     name: "upal barua",
+  //     position: "founder",
+  //     image:
+  //       "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   },
+  //   {
+  //     id: 1,
+  //     name: "upal barua",
+  //     position: "founder",
+  //     image:
+  //       "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   },
+  //   {
+  //     id: 1,
+  //     name: "upal barua",
+  //     position: "founder",
+  //     image:
+  //       "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   },
+  // ];
+
+  const { data, isLoading } = useGetManagementQuery("");
+  if (isLoading) {
+    <h1>Loading</h1>;
+  }
+
   return (
     <section className="mx-auto mb-14 max-w-7xl">
       <div className="flex flex-col items-center gap-24 lg:flex-row">
@@ -128,7 +136,7 @@ const AboutUs = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-3">
-          {allManagement?.map((management) => (
+          {data?.data?.map((management) => (
             <div key={management?.id}>
               <Image
                 src={management?.image}
