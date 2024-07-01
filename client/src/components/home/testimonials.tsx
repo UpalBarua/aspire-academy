@@ -1,9 +1,14 @@
+"use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { testimonials } from "@/config";
 import { Quote } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { useGetTestimonialQuery } from "@/redux/api/baseApi";
 
 export function Testimonials() {
+  const { data, isLoading } = useGetTestimonialQuery("");
+  if (isLoading) {
+    <h1>Loading</h1>;
+  }
   return (
     <section className="pb-section container">
       <SectionHeading
@@ -11,7 +16,7 @@ export function Testimonials() {
         subHeading="Insights and Testimonials from Our Community: Discover the Impact of Our Programs Through Our Students Eyes"
       />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {testimonials?.map((testimonial) => (
+        {data?.data?.map((testimonial) => (
           <div
             key={testimonial?.id}
             className="relative space-y-6 overflow-hidden rounded-3xl border border-border/25 bg-secondary/50 p-6 shadow"
