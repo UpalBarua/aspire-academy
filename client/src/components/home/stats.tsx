@@ -20,7 +20,7 @@ export function Stats() {
           </p>
           <div className="flex items-center gap-4 pt-4">
             <Link
-              href="/about"
+              href="/about-us"
               className={buttonVariants({
                 variant: "dark",
                 size: "lg",
@@ -30,7 +30,7 @@ export function Stats() {
               About Us
             </Link>
             <Link
-              href="/about"
+              href="/blog"
               className={buttonVariants({
                 variant: "dark-outline",
                 size: "lg",

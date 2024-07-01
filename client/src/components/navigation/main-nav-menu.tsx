@@ -20,9 +20,9 @@ export function MainNavMenu() {
     <NavigationMenu className="hidden lg:block">
       <NavigationMenuList>
         {mainNavLinks.map(({ label, href, subLinks }) =>
-          subLinks.length ? (
+          subLinks && subLinks?.length ? (
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="font-normal hover:bg-secondary hover:text-foreground focus:bg-secondary focus:text-foreground focus:outline-none data-[active]:bg-secondary data-[state=open]:bg-secondary data-[active]:text-foreground data-[state=open]:text-foreground">
+              <NavigationMenuTrigger className="bg-transparent font-normal hover:bg-secondary hover:text-foreground focus:bg-secondary focus:text-foreground focus:outline-none data-[active]:bg-secondary data-[state=open]:bg-secondary data-[active]:text-foreground data-[state=open]:text-foreground">
                 {label}
               </NavigationMenuTrigger>
               <NavigationMenuContent className="bg-background/80 text-foreground backdrop-blur-md backdrop-saturate-200">
@@ -37,11 +37,11 @@ export function MainNavMenu() {
             </NavigationMenuItem>
           ) : (
             <NavigationMenuItem>
-              <Link href={href} legacyBehavior passHref>
+              <Link href={href!} legacyBehavior passHref>
                 <NavigationMenuLink
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    "font-normal hover:bg-secondary hover:text-foreground focus:bg-secondary focus:text-foreground focus:outline-none data-[active]:bg-secondary data-[state=open]:bg-secondary data-[active]:text-foreground data-[state=open]:text-foreground",
+                    "bg-transparent font-normal hover:bg-secondary hover:text-foreground focus:bg-secondary focus:text-foreground focus:outline-none data-[active]:bg-secondary data-[state=open]:bg-secondary data-[active]:text-foreground data-[state=open]:text-foreground",
                   )}
                 >
                   {label}

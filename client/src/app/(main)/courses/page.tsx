@@ -1,6 +1,14 @@
 import { CourseCard } from "@/components/course-card";
 import { CourseSearch } from "@/components/course-search";
 import type { TCourse } from "@/types";
+import { CountUpProps } from "react-countup";
+import { useMemo } from "react";
+
+type CoursePageProps = {
+  searchParams: {
+    [key: string]: string | string[] | undefined;
+  };
+};
 
 async function getAllCourses() {
   try {
@@ -15,8 +23,15 @@ async function getAllCourses() {
   }
 }
 
-export default async function CoursesPage() {
-  const courses = await getAllCourses();
+export default async function CoursesPage({
+  searchParams,
+}: Readonly<CoursePageProps>) {
+  const courses: TCourse[] = await getAllCourses();
+  const search = searchParams.search;
+
+  const filteredCourses = courses.filter(({ name }) =>
+    name.includes(search as string),
+  );
 
   return (
     <div className="pb-section container">
@@ -33,9 +48,11 @@ export default async function CoursesPage() {
       </div>
       {courses.length ? (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {courses.map((course: TCourse) => (
-            <CourseCard key={course._id} {...course} />
-          ))}
+          {(filteredCourses.length ? filteredCourses : courses).map(
+            (course: TCourse) => (
+              <CourseCard key={course._id} {...course} />
+            ),
+          )}
         </div>
       ) : (
         <div className="flex h-[15rem] w-full items-center justify-center text-center">

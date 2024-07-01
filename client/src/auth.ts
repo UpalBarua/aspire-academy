@@ -19,6 +19,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }).then((res) => res.json());
 
           if (res.success) {
+            console.log(res.data);
             return res.data;
           }
 
@@ -33,5 +34,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
     newUser: "/register",
     signIn: "/login",
+  },
+  callbacks: {
+    authorized({ auth }) {
+      console.log(auth);
+      return true;
+    },
   },
 });

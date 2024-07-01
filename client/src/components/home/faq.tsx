@@ -22,7 +22,7 @@ export function Faq() {
           contact us directly.
         </p>
         <Link
-          href="/courses"
+          href="/help-desk"
           className={buttonVariants({
             size: "lg",
             className: "!text-base",

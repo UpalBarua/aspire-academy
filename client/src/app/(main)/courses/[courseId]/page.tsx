@@ -46,6 +46,7 @@ export default async function CoursePage({
   const courseDetails: TCourse = await getCourseDetails(params.courseId);
 
   const {
+    _id,
     name: courseName,
     instructor,
     description,
@@ -98,7 +99,7 @@ export default async function CoursePage({
             </li>
           </ul>
           <div className="flex flex-col gap-4 pt-4 sm:flex-row lg:flex-col sm:[&>*]:flex-1 lg:[&>*]:flex-none">
-            <Link className={buttonVariants({})} href="/checkout">
+            <Link className={buttonVariants({})} href={`/checkout/${_id}`}>
               <CreditCard className="h-4 w-4" />
               <span>Purchase Now</span>
             </Link>
