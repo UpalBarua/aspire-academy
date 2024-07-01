@@ -1,4 +1,5 @@
-const validStringRegex = /^[a-zA-Z0-9\s,.!?-_]+$/;
+const validStringRegex = /^[a-zA-Z0-9\s,.!?_'-]+$/;
+
 const urlRegex =
   /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 const nameRegex = /^[a-z ,.'-]+$/i;

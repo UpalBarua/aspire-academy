@@ -1,16 +1,12 @@
-import {
-  CalendarClock,
-  ChevronsUpDown,
-  ExternalLink,
-  LogOut,
-} from "lucide-react";
+import { LogOutButton } from "@/components/logout-button";
+import { TCourse } from "@/types";
+import { CalendarClock, ChevronsUpDown, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { TCourse } from "@/types";
 
 import { auth } from "@/auth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
 async function getCourseDetails(courseId: unknown) {
   try {
@@ -74,10 +70,7 @@ export default async function ProfilePage() {
               <Link href="">Link {i + 1}</Link>
             ))}
         </div>
-        <Button variant="secondary" className="text-destructive">
-          <LogOut />
-          <span>Logout</span>
-        </Button>
+        <LogOutButton />
       </section>
       <section className="col-span-6">
         <div className="flex items-start justify-between rounded-3xl border border-transparent p-4 hover:border-border/25 hover:bg-secondary/25">

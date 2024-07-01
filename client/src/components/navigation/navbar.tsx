@@ -28,7 +28,7 @@ export async function Navbar() {
         </Link>
         <div className="flex items-center gap-x-4">
           <MainNavMenu />
-          {!session?.user ? (
+          {session?.user ? (
             <ProfileButton />
           ) : (
             <Link className={buttonVariants({ size: "sm" })} href="/register">

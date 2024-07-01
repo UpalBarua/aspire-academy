@@ -16,7 +16,7 @@ export function ExploreCourses() {
       <CourseTabs />
       <div className="mt-10 flex items-center justify-center">
         <Link
-          href="/courses"
+          href="/events"
           className={buttonVariants({
             variant: "outline",
             size: "lg",
