@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useCreateEventMutation } from "@/redux/api/baseApi";
 
 import {
   CalendarRange,
@@ -20,6 +21,8 @@ const AddEvent = () => {
     formState: { errors },
   } = useForm();
 
+  const [createEvent] = useCreateEventMutation();
+
   const onSubmit = async (data) => {
     try {
       const image = data.image[0];
@@ -34,24 +37,13 @@ const AddEvent = () => {
       })
         .then((res) => res.json())
         .then((imgData) => {
-          console.log(imgData);
-
-          const blogData = {
+          const eventData = {
             title: data.title,
             date: data.date,
             image: imgData.data.url,
             details: data.details,
           };
-          console.log(JSON.stringify(blogData));
-          fetch("http://localhost:8080/api/latest-event/create-latest-event", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(blogData),
-          })
-            .then((res) => res.json())
-            .then((data) => console.log(data));
+          createEvent(eventData);
         });
       reset();
     } catch (error) {
@@ -60,8 +52,8 @@ const AddEvent = () => {
   };
 
   return (
-    <section className="mx-auto max-w-5xl">
-      <div className="relative m-10 rounded-lg shadow">
+    <section>
+      <div className="m-10 rounded-lg shadow">
         <div className="ml-2 lg:ml-8">
           <h1 className="border-l-2 p-2 text-3xl font-bold text-primary">
             Add Your Event
@@ -70,7 +62,7 @@ const AddEvent = () => {
         <div className="space-y-6 p-6">
           <form
             action="#"
-            className="rounded-md p-6 shadow-md shadow-secondary"
+            className="w-[700px] rounded-md p-6 shadow-md shadow-secondary"
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className="flex flex-col gap-4">

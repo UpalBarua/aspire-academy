@@ -10,10 +10,10 @@ export default function EventCard({ event }: { event: TEvent }) {
   return (
     <div className="rounded-md bg-secondary p-4">
       <div className="flex justify-end gap-4">
-        <Button className="rounded-md font-bold">Edit</Button>
+        <Button className="hidden rounded-md font-bold">Edit</Button>
         <Button
           onClick={() => deleteEvent(_id)}
-          className="rounded-md font-bold"
+          className="rounded-md bg-red-600 font-bold text-white"
         >
           Delete
         </Button>

@@ -2,25 +2,25 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useCreateBlogMutation } from "@/redux/api/baseApi";
+import { useCreateTestimonialMutation } from "@/redux/api/baseApi";
+
 import {
-  CalendarRange,
   Camera,
   FolderPen,
+  GraduationCap,
   MessageCircleMore,
 } from "lucide-react";
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const AddBlog = () => {
+const AddTestimonial = () => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-
-  const [createBlog] = useCreateBlogMutation();
+  const [createTestimonial] = useCreateTestimonialMutation();
 
   const onSubmit = async (data) => {
     try {
@@ -36,16 +36,16 @@ const AddBlog = () => {
       })
         .then((res) => res.json())
         .then((imgData) => {
-          const blogData = {
-            title: data.title,
-            date: data.date,
+          const testimonialData = {
+            name: data.name,
+            batch: data.batch,
             image: imgData.data.url,
-            details: data.details,
+            review: data.review,
           };
 
-          createBlog(blogData);
+          createTestimonial(testimonialData);
+          reset();
         });
-      reset();
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +56,7 @@ const AddBlog = () => {
       <div className="relative m-10 rounded-lg shadow">
         <div className="ml-2 lg:ml-8">
           <h1 className="border-l-2 p-2 text-3xl font-bold text-primary">
-            Add Your Blog
+            Add Your Testimonial
           </h1>
         </div>
         <div className="space-y-6 p-6">
@@ -69,28 +69,28 @@ const AddBlog = () => {
               <div>
                 <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
                   <FolderPen size={20} />
-                  Title
+                  name
                 </label>
                 <Input
-                  {...register("title", { required: true })}
+                  {...register("name", { required: true })}
                   type="text"
-                  name="title"
+                  name="name"
                   className="block w-full rounded-md border bg-secondary p-2.5 text-white"
-                  placeholder="title"
+                  placeholder="name"
                 />
               </div>
 
               <div>
                 <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
-                  <CalendarRange size={20} />
-                  date
+                  <GraduationCap size={20} />
+                  batch
                 </label>
                 <Input
-                  {...register("date", { required: true })}
-                  type="date"
-                  name="date"
+                  {...register("batch", { required: true })}
+                  type="text"
+                  name="batch"
                   className="block w-full rounded-md border bg-secondary p-2.5 text-white"
-                  placeholder="date"
+                  placeholder="batch"
                 />
               </div>
               <div>
@@ -109,13 +109,13 @@ const AddBlog = () => {
               <div>
                 <label className="mb-2 flex items-center gap-3 text-[15px] font-medium text-white">
                   <MessageCircleMore size={22} />
-                  details
+                  review
                 </label>
                 <Textarea
-                  {...register("details", { required: true })}
-                  name="details"
+                  {...register("review", { required: true })}
+                  name="review"
                   className="block w-full rounded-lg border bg-secondary p-4"
-                  placeholder="details"
+                  placeholder="review"
                 ></Textarea>
               </div>
             </div>
@@ -134,4 +134,4 @@ const AddBlog = () => {
   );
 };
 
-export default AddBlog;
+export default AddTestimonial;

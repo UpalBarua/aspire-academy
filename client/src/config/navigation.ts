@@ -1,4 +1,13 @@
-import { PersonStanding, School, Smile, Users } from "lucide-react";
+import {
+  CalendarClock,
+  MonitorStop,
+  NotebookPen,
+  PersonStanding,
+  School,
+  SquareGanttChart,
+  Users,
+  UsersRound,
+} from "lucide-react";
 
 type MainNavLink = {
   label: string;
@@ -87,34 +96,35 @@ export const adminNavigation = [
     href: "/admin/students",
     Icon: PersonStanding,
   },
-  {
-    label: "Events",
-    href: "/admin/students",
-    Icon: Smile,
-  },
+
   {
     label: "Help Desk",
     href: "/admin/help-desk",
-    Icon: Smile,
+    Icon: MonitorStop,
   },
   {
-    label: "All Blog",
+    label: "Blog",
     href: "/admin/all-blog",
-    Icon: Smile,
+    Icon: NotebookPen,
   },
   {
-    label: "Add Blog",
-    href: "/admin/add-blog",
-    Icon: Smile,
-  },
-  {
-    label: "All Event",
+    label: "Event",
     href: "/admin/all-event",
-    Icon: Smile,
+    Icon: CalendarClock,
   },
   {
-    label: "Add Event",
-    href: "/admin/add-event",
-    Icon: Smile,
+    label: "Testimonial",
+    href: "/admin/all-testimonial",
+    Icon: SquareGanttChart,
+  },
+  {
+    label: "Alumni",
+    href: "/admin/all-alumni",
+    Icon: UsersRound,
+  },
+  {
+    label: "Management",
+    href: "/admin/all-management",
+    Icon: Users,
   },
 ] as const;
