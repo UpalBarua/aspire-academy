@@ -33,13 +33,16 @@ export default function RegisterPage() {
 
   const onSubmit = async ({ name, email, password }: RegisterForm) => {
     try {
-      const res = await fetch("http://localhost:8080/api/users/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        "https://aspire-academy-server.vercel.app/api/users/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, password }),
         },
-        body: JSON.stringify({ name, email, password }),
-      }).then((res) => res.json());
+      ).then((res) => res.json());
 
       if (!res.success) {
         throw new Error(res.message);

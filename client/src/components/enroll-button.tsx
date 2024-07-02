@@ -13,7 +13,7 @@ export function EnrollButton({
 }: Readonly<EnrollButtonProps>) {
   async function enrollCourse() {
     const data = await fetch(
-      `http://localhost:8080/api/users/enroll/${userId}`,
+      `https://aspire-academy-server.vercel.app/api/users/enroll/${userId}`,
       {
         method: "PATCH",
         headers: {

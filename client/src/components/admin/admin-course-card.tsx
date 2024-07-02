@@ -18,7 +18,7 @@ export function AdminCourseCard({
   instructor: { name, picture },
 }: Readonly<TCourse>) {
   async function deleteCourse(id: string) {
-    await fetch(`http://localhost:8080/api/courses/${id}`, {
+    await fetch(`https://aspire-academy-server.vercel.app/api/courses/${id}`, {
       method: "DELETE",
     });
     console.log("done");

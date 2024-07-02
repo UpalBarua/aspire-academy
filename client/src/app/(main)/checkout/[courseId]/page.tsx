@@ -24,7 +24,7 @@ async function getCourseDetails(courseId: unknown) {
     }
 
     const data = await fetch(
-      `http://localhost:8080/api/courses/${courseId}`,
+      `https://aspire-academy-server.vercel.app/api/courses/${courseId}`,
     ).then((res) => res.json());
 
     return data.data;
@@ -41,7 +41,7 @@ async function getUserDetails(userEmail: unknown) {
     }
 
     const data = await fetch(
-      `http://localhost:8080/api/users/${userEmail}`,
+      `https://aspire-academy-server.vercel.app/api/users/${userEmail}`,
     ).then((res) => res.json());
 
     return data.data;

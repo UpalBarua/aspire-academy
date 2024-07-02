@@ -29,7 +29,7 @@ async function getCourseDetails(courseId: unknown) {
     }
 
     const data = await fetch(
-      `http://localhost:8080/api/courses/${courseId}`,
+      `https://aspire-academy-server.vercel.app/api/courses/${courseId}`,
     ).then((res) => res.json());
 
     console.log({ data });
