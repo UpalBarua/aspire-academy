@@ -136,7 +136,7 @@ const AboutUs = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-3">
-          {data?.data?.map((management) => (
+          {data?.data?.map((management: any) => (
             <div key={management?.id}>
               <Image
                 src={management?.image}
