@@ -1,13 +1,11 @@
 "use client";
-import ManagementCard from "@/components/AdminCard/managementCard";
-import TestimonialCard from "@/components/AdminCard/testimonialCard";
 import { Button } from "@/components/ui/button";
-import { TManagement, TTestimonial } from "@/config/type";
+import ManagementCard from "@/components/AdminCard/ManagementCard";
+import { TManagement } from "@/config/type";
 import { useGetManagementQuery } from "@/redux/api/baseApi";
 
 import { Plus } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
 const AllManagement = () => {
   const { data, isLoading } = useGetManagementQuery("");
