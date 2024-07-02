@@ -57,7 +57,7 @@ export function RecentEvents() {
           </div>
           <div className="mt-10 flex items-center justify-center">
             <Link
-              href="/courses"
+              href="/events"
               className={buttonVariants({
                 variant: "outline",
                 size: "lg",

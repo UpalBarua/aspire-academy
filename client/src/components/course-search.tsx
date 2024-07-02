@@ -1,33 +1,17 @@
 "use client";
 
+import { categories } from "@/config";
 import { cn } from "@/lib/utils";
 import { Search, X } from "lucide-react";
 import { useState } from "react";
-import { categories } from "@/config";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 const filter = ["enrolling", "new"];
 
 export function CourseSearch() {
-  const searchParams = useSearchParams();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const current = new URLSearchParams(Array.from(searchParams.entries()));
-
-    current.set("search", event.target.value.trim());
-
-    const search = current.toString();
-    const query = search ? `?${search}` : "";
-
-    router.push(`${pathname}${query}`);
-  };
 
   const selectCategory = (category: string) => {
     setSelectedCategories((prev) => {
@@ -70,7 +54,6 @@ export function CourseSearch() {
           type="text"
           className="h-12 w-full border-0 bg-transparent outline-0"
           placeholder="Search Courses"
-          onChange={onChange}
         />
         {isSearchOpen && (
           <button
