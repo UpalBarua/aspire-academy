@@ -3,14 +3,13 @@
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode, useState } from "react";
 import { usePathname } from "next/navigation";
+import { ReactNode, useState } from "react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { adminNavigation } from "@/config/navigation";
 import { cn } from "@/lib/utils";
-import path from "path";
 
 type AdminLayoutProps = {
   children: ReactNode;
@@ -19,7 +18,6 @@ type AdminLayoutProps = {
 export default function AdminLayout({ children }: Readonly<AdminLayoutProps>) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const pathname = usePathname();
-  console.log(pathname);
 
   return (
     <section>
@@ -66,7 +64,7 @@ export default function AdminLayout({ children }: Readonly<AdminLayoutProps>) {
           </div>
         </div>
       </div>
-      <div className="min-h-screen lg:absolute lg:left-[22rem] lg:top-0">
+      <div className="min-h-screen w-full lg:absolute lg:left-[22rem] lg:top-0 lg:w-[calc(100%-22rem)]">
         <div className="container fixed right-0 top-0 z-[10] flex min-h-[4rem] w-full items-center gap-x-4 bg-background/80 backdrop-blur-md backdrop-saturate-200 lg:hidden">
           <Button
             size="icon"

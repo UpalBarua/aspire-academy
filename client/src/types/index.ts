@@ -21,3 +21,18 @@ export type TCourse = {
     end: string;
   };
 };
+
+export type Testimonial = {
+  _id?: string;
+  name: string;
+  batch: number;
+  image: string;
+  review: string;
+};
+
+export type Event = {
+  date: string;
+  details: string;
+  image: string;
+  title: string;
+};
