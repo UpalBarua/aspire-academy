@@ -21,7 +21,7 @@ export function MainNavMenu() {
       <NavigationMenuList>
         {mainNavLinks.map(({ label, href, subLinks }) =>
           subLinks && subLinks?.length ? (
-            <NavigationMenuItem>
+            <NavigationMenuItem key={href}>
               <NavigationMenuTrigger className="bg-transparent font-normal hover:bg-secondary hover:text-foreground focus:bg-secondary focus:text-foreground focus:outline-none data-[active]:bg-secondary data-[state=open]:bg-secondary data-[active]:text-foreground data-[state=open]:text-foreground">
                 {label}
               </NavigationMenuTrigger>

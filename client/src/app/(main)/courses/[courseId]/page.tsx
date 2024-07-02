@@ -32,7 +32,7 @@ async function getCourseDetails(courseId: unknown) {
       `https://aspire-academy-server.vercel.app/api/courses/${courseId}`,
     ).then((res) => res.json());
 
-    console.log({ data });
+    console.log(data);
     return data.data;
   } catch (error) {
     console.log(error);
@@ -44,6 +44,7 @@ export default async function CoursePage({
   params,
 }: Readonly<CoursePageProps>) {
   const courseDetails: TCourse = await getCourseDetails(params.courseId);
+  console.log({ courseDetails });
 
   const {
     _id,
@@ -57,8 +58,6 @@ export default async function CoursePage({
     price,
     batch,
   } = courseDetails;
-
-  console.log(courseDetails);
 
   return (
     <main className="pb-section container grid grid-cols-1 items-start gap-4 lg:grid-cols-12 lg:gap-6">
@@ -117,8 +116,8 @@ export default async function CoursePage({
           <div className="flex max-w-max items-center gap-x-2 rounded-full border border-border/50 bg-secondary px-4 py-2 text-sm leading-none">
             <ArrowDownRightFromCircle className="h-4 w-4 text-primary" />
             <time>
-              Enrolling: {format(new Date(enrollment.start), "dd LLL")} -{" "}
-              {format(new Date(enrollment.end), "dd LLL")}
+              Enrolling: {format(new Date(enrollment?.start), "dd LLL")} -{" "}
+              {format(new Date(enrollment?.end), "dd LLL")}
             </time>
           </div>
         </div>
