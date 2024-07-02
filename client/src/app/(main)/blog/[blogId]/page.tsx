@@ -12,7 +12,7 @@ export default async function BlogPostPage({
   params,
 }: Readonly<BlogPostPageProps>) {
   const blogDetails = await fetch(
-    `http://localhost:8080/api/blog/${params.blogId}`,
+    `https://aspire-academy-server.vercel.app/api/blog/${params.blogId}`,
   ).then((res) => res.json());
 
   const { date, image, title, details } = blogDetails.data as TBlog;

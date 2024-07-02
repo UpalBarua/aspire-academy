@@ -34,7 +34,7 @@ const HelpDesk = () => {
     try {
       const validationData = schema.parse(data);
       const result = await axios.post(
-        "http://localhost:8080/api/help-desk/create-help-desk",
+        "https://aspire-academy-server.vercel.app/api/help-desk/create-help-desk",
         validationData,
       );
       console.log("Response from server:", result.data);

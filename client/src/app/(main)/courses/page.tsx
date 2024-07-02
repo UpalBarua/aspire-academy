@@ -10,9 +10,9 @@ type CoursePageProps = {
 
 async function getAllCourses() {
   try {
-    const data = await fetch("http://localhost:8080/api/courses").then((res) =>
-      res.json(),
-    );
+    const data = await fetch(
+      "https://aspire-academy-server.vercel.app/api/courses",
+    ).then((res) => res.json());
 
     return data.data;
   } catch (error) {

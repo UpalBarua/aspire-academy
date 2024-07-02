@@ -23,7 +23,7 @@ import {
   Users,
 } from "lucide-react";
 
-export const api = "http://localhost:8080/api";
+export const api = "https://aspire-academy-server.vercel.app/api";
 
 export const categories = [
   { category: "Web & App Development", Icon: Code },

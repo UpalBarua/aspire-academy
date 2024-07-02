@@ -10,13 +10,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       async authorize(credentials) {
         try {
-          const res = await fetch("http://localhost:8080/api/users/login", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
+          const res = await fetch(
+            "https://aspire-academy-server.vercel.app/api/users/login",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(credentials),
             },
-            body: JSON.stringify(credentials),
-          }).then((res) => res.json());
+          ).then((res) => res.json());
 
           if (res.success) {
             console.log(res.data);
