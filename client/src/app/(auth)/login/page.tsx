@@ -15,12 +15,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Lock, Mail } from "lucide-react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 type LoginForm = z.infer<typeof loginFormSchema>;
 
 export default function LoginPage() {
+  const router = useRouter();
+
   const form = useForm<LoginForm>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
@@ -36,10 +40,10 @@ export default function LoginPage() {
         password,
       });
 
-      alert("Logged in");
-    } catch (error) {
-      console.log(error);
-      alert("Something went wrong");
+      toast.success("Welcome!");
+      router.replace("/");
+    } catch {
+      toast.error("Something went wrong");
     }
   };
 

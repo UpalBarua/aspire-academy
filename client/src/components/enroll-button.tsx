@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "sonner";
 import { Button } from "./ui/button";
 
 type EnrollButtonProps = {
@@ -12,19 +13,22 @@ export function EnrollButton({
   userId,
 }: Readonly<EnrollButtonProps>) {
   async function enrollCourse() {
-    const data = await fetch(
-      `https://aspire-academy-server.vercel.app/api/users/enroll/${userId}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
+    try {
+      await fetch(
+        `https://aspire-academy-server.vercel.app/api/users/enroll/${userId}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ courseId }),
         },
-        body: JSON.stringify({ courseId }),
-      },
-    ).then((res) => res.json());
+      ).then((res) => res.json());
 
-    console.log(userId, courseId);
-    console.log(data);
+      toast.success("Enrolled!");
+    } catch {
+      console.log("Something went wrong.");
+    }
   }
 
   return (

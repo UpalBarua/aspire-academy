@@ -15,12 +15,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Lock, Mail, Repeat2, UserRound } from "lucide-react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 type RegisterForm = z.infer<typeof registerFormSchema>;
 
 export default function RegisterPage() {
+  const router = useRouter();
+
   const form = useForm<RegisterForm>({
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
@@ -53,10 +57,10 @@ export default function RegisterPage() {
         password,
       });
 
-      alert("Registered");
-    } catch (error) {
-      console.log(error);
-      alert("Something went wrong");
+      toast.success("Welcome!");
+      router.push("/");
+    } catch {
+      toast.error("Something went wrong");
     }
   };
 
