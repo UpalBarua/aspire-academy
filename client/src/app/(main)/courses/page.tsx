@@ -1,8 +1,6 @@
 import { CourseCard } from "@/components/course-card";
 import { CourseSearch } from "@/components/course-search";
 import type { TCourse } from "@/types";
-import { CountUpProps } from "react-countup";
-import { useMemo } from "react";
 
 type CoursePageProps = {
   searchParams: {

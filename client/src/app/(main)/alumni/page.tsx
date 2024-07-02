@@ -1,8 +1,8 @@
 "use client";
-import { GraduationCap, Landmark } from "lucide-react";
+
 import { SectionHeading } from "@/components/ui/section-heading";
-import { alumni } from "@/config";
 import { useGetAlumniQuery } from "@/redux/api/baseApi";
+import { GraduationCap } from "lucide-react";
 
 export default function AlumniPage() {
   const { data, isLoading } = useGetAlumniQuery("");
@@ -17,7 +17,7 @@ export default function AlumniPage() {
         subHeading="Lorem ipsum dolor sit amet, qui minim labore adipisicing minim labore adipisicing minim sint cillum minim sint cillum sint consectetur cupidatat."
       />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-        {data?.data?.map((person) => (
+        {data?.data?.map((person: any) => (
           <AlumniCard key={person._id} {...person} />
         ))}
       </div>
@@ -25,9 +25,7 @@ export default function AlumniPage() {
   );
 }
 
-type Alumni = (typeof alumni)[number];
-
-function AlumniCard({ image, name, course, batchNo }: Alumni) {
+function AlumniCard({ image, name, course, batchNo }: any) {
   return (
     <div
       className="h-full min-h-[30rem] rounded-3xl border border-border/25 bg-cover bg-center shadow"

@@ -3,6 +3,7 @@
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ReactNode, useState } from "react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -16,6 +17,7 @@ type AdminLayoutProps = {
 
 export default function AdminLayout({ children }: Readonly<AdminLayoutProps>) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <section>
@@ -27,16 +29,23 @@ export default function AdminLayout({ children }: Readonly<AdminLayoutProps>) {
           },
         )}
       >
-        <div className="flex h-full flex-col px-4 py-6">
-          <h2 className="pb-4 text-2xl font-medium tracking-tight">
+        <div className="flex h-full flex-col py-4 pl-6">
+          <h2 className="px-4 pb-4 text-2xl font-medium tracking-tight">
             Admin Dashboard
           </h2>
-          <nav className="mb-8 flex flex-1 flex-col items-start gap-2">
+          <nav className="mb-8 flex flex-1 flex-col items-start">
             {adminNavigation.map(({ label, href, Icon }) => (
               <Link
                 href={href}
                 key={href}
-                className="inline-flex h-12 items-center justify-center gap-x-2.5 rounded-md px-8"
+                className={cn(
+                  "inline-flex h-14 w-full items-center justify-start gap-x-2.5 px-4 transition-colors duration-300 hover:text-foreground/60",
+                  {
+                    "rounded-bl-md rounded-tl-md border-r-4 border-primary bg-background":
+                      (pathname === href && pathname === "/admin") ||
+                      (pathname === href && pathname.startsWith(href)),
+                  },
+                )}
               >
                 <Icon className="size-5 text-foreground/80" />
                 <span>{label}</span>
@@ -55,7 +64,7 @@ export default function AdminLayout({ children }: Readonly<AdminLayoutProps>) {
           </div>
         </div>
       </div>
-      <div className="min-h-screen lg:absolute lg:left-[22rem] lg:top-0">
+      <div className="min-h-screen w-full lg:absolute lg:left-[22rem] lg:top-0 lg:w-[calc(100%-22rem)]">
         <div className="container fixed right-0 top-0 z-[10] flex min-h-[4rem] w-full items-center gap-x-4 bg-background/80 backdrop-blur-md backdrop-saturate-200 lg:hidden">
           <Button
             size="icon"

@@ -1,4 +1,5 @@
 import {
+  AreaChart,
   CalendarClock,
   MonitorStop,
   NotebookPen,
@@ -81,6 +82,11 @@ export const mainNavLinks: MainNavLink[] = [
 ];
 
 export const adminNavigation = [
+  {
+    label: "Stats",
+    href: "/admin",
+    Icon: AreaChart,
+  },
   {
     label: "Courses",
     href: "/admin/courses",
