@@ -22,7 +22,7 @@ export type TEvent = {
   details: string;
 };
 export type TTestimonial = {
-  _id: string;
+  _id?: string;
   name: string;
   batch: string;
   image: string;

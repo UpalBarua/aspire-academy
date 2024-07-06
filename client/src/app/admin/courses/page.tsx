@@ -1,17 +1,14 @@
+"use client";
+
 import { AdminCourseCard } from "@/components/admin/admin-course-card";
 import { buttonVariants } from "@/components/ui/button";
+import { useGetCoursesQuery } from "@/redux/api/baseApi";
 import type { TCourse } from "@/types";
+import { Loader2 } from "lucide-react";
 import Link from "next/link";
 
-async function getAllCourses() {
-  const data = await fetch(
-    "https://aspire-academy-server.vercel.app/api/courses",
-  ).then((res) => res.json());
-  return data.data;
-}
-
-export default async function AdminCoursePage() {
-  const courses = await getAllCourses();
+export default function AdminCoursePage() {
+  const { isLoading, data: courses } = useGetCoursesQuery("");
 
   return (
     <section>
@@ -21,11 +18,18 @@ export default async function AdminCoursePage() {
           New Course
         </Link>
       </div>
-      <div className="grid grid-cols-3 gap-4">
-        {courses.map((course: TCourse) => (
-          <AdminCourseCard key={course._id} {...course} />
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="flex min-h-[20rem] flex-col items-center justify-center gap-4">
+          <Loader2 className="size-10 animate-spin" />
+          <span>Please Wait</span>
+        </div>
+      ) : (
+        <div className="grid grid-cols-3 gap-4">
+          {courses.data.map((course: TCourse) => (
+            <AdminCourseCard key={course._id} {...course} />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

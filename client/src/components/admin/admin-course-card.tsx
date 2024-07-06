@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { useDeleteCourseMutation } from "@/redux/api/baseApi";
 import type { TCourse } from "@/types";
 
 export function AdminCourseCard({
@@ -17,12 +18,7 @@ export function AdminCourseCard({
   price: { regular, discounted },
   instructor: { name, picture },
 }: Readonly<TCourse>) {
-  async function deleteCourse(id: string) {
-    await fetch(`https://aspire-academy-server.vercel.app/api/courses/${id}`, {
-      method: "DELETE",
-    });
-    console.log("done");
-  }
+  const [deleteCourse] = useDeleteCourseMutation();
 
   return (
     <Card className="relative mx-auto max-w-[28rem] border-border/50 bg-card/25 transition-colors duration-300">
@@ -63,7 +59,7 @@ export function AdminCourseCard({
           <Button
             className="flex-1 text-base"
             variant="destructive"
-            onClick={() => deleteCourse(_id as string)}
+            onClick={() => deleteCourse(_id)}
           >
             Delete
           </Button>

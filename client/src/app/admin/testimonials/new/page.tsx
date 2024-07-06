@@ -7,6 +7,7 @@ import {
   FolderPen,
   MessageCircleMore,
   X,
+  GraduationCap,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -16,35 +17,37 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { uploadImg } from "@/lib/upload-img";
-import { useCreateBlogMutation } from "@/redux/api/baseApi";
+import { useCreateTestimonialMutation } from "@/redux/api/baseApi";
 import { toast } from "sonner";
 
 type FormData = {
-  title: string;
+  name: string;
   image: FileList;
-  details: string;
+  review: string;
+  course: string;
 };
 
-export default function NewBlogPostPage() {
+export default function NewEventPage() {
+  const [createTestimonial] = useCreateTestimonialMutation();
+
   const [isPublishing, setIsPublishing] = useState(false);
-  const [createBlog] = useCreateBlogMutation();
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (formData: unknown) => {
     try {
       setIsPublishing(true);
 
-      const { image, title, details } = formData as FormData;
+      const { image, review, name, course } = formData as FormData;
       const imageUrl = await uploadImg(image[0]);
 
-      createBlog({
-        title,
-        details,
-        date: new Date(),
+      createTestimonial({
+        name: name,
+        batch: course,
         image: imageUrl,
+        review: review,
       });
 
-      toast.success("Added blog post.");
+      toast.success("Testimoanial event.");
       reset();
     } catch {
       console.log("something went wrong");
@@ -56,8 +59,8 @@ export default function NewBlogPostPage() {
   return (
     <section>
       <div className="flex items-center justify-between pb-6">
-        <h2 className="py-4 pb-4 text-3xl font-bold">Add New Post</h2>
-        <Link className={buttonVariants({})} href="/admin/blog">
+        <h2 className="py-4 pb-4 text-3xl font-bold">Add New Testimonial</h2>
+        <Link className={buttonVariants({})} href="/admin/testimonials">
           <ArrowLeft className="size-5" />
           <span>Go Back</span>
         </Link>
@@ -66,18 +69,29 @@ export default function NewBlogPostPage() {
         <div className="flex flex-col gap-2">
           <label className="flex items-center gap-3 pb-2">
             <FolderPen className="size-5" />
-            <span>Post Title</span>
+            <span>Name</span>
           </label>
           <Input
-            {...register("title", { required: true })}
+            {...register("name", { required: true })}
             type="text"
-            placeholder="Post Title"
+            placeholder="Name"
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="flex items-center gap-3 pb-2">
+            <GraduationCap className="size-5" />
+            <span>Course</span>
+          </label>
+          <Input
+            {...register("course", { required: true })}
+            type="text"
+            placeholder="Course"
           />
         </div>
         <div className="flex flex-col gap-2">
           <label className="flex items-center gap-3 pb-2">
             <Camera className="size-5" />
-            <span>Banner Image</span>
+            <span>Image</span>
           </label>
           <Input
             {...register("image", { required: true })}
@@ -88,12 +102,12 @@ export default function NewBlogPostPage() {
         <div className="flex flex-col gap-2">
           <label className="flex items-center gap-3 pb-2">
             <MessageCircleMore className="size-5" />
-            <span>Post Content</span>
+            <span>Review</span>
           </label>
           <Textarea
-            {...register("details", { required: true })}
+            {...register("review", { required: true })}
             className="min-h-[14rem] resize-none"
-            placeholder="Post Content"
+            placeholder="Review"
           />
         </div>
         <div className="flex items-center justify-end gap-x-2">

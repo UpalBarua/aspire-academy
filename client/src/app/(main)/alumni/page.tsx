@@ -1,15 +1,26 @@
-"use client";
-
 import { SectionHeading } from "@/components/ui/section-heading";
-import { useGetAlumniQuery } from "@/redux/api/baseApi";
+import { TAlumni } from "@/config/type";
 import { GraduationCap } from "lucide-react";
 
-export default function AlumniPage() {
-  const { data, isLoading } = useGetAlumniQuery("");
+async function getAllAlumni() {
+  try {
+    const data = await fetch(
+      "https://aspire-academy-server.vercel.app/api/alumni",
+      {
+        cache: "no-store",
+      },
+    ).then((res) => res.json());
 
-  if (isLoading) {
-    <h1>loading</h1>;
+    return data.data;
+  } catch (error) {
+    console.log(error);
+    return [];
   }
+}
+
+export default async function AlumniPage() {
+  const alumni: TAlumni[] = await getAllAlumni();
+
   return (
     <section className="pb-section container">
       <SectionHeading
@@ -17,7 +28,7 @@ export default function AlumniPage() {
         subHeading="Lorem ipsum dolor sit amet, qui minim labore adipisicing minim labore adipisicing minim sint cillum minim sint cillum sint consectetur cupidatat."
       />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-        {data?.data?.map((person: any) => (
+        {alumni.map((person: any) => (
           <AlumniCard key={person._id} {...person} />
         ))}
       </div>

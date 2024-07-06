@@ -2,7 +2,6 @@ import { LogOutButton } from "@/components/logout-button";
 import { TCourse } from "@/types";
 import { CalendarClock, ChevronsUpDown, ExternalLink } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 import { auth } from "@/auth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -47,6 +46,7 @@ export default async function ProfilePage() {
   const session = await auth();
 
   const userDetails = await getUserDetails(session?.user?.email);
+
   const courseDetails: TCourse = await getCourseDetails(
     userDetails.enrolledCourses[0] as string,
   );
@@ -73,7 +73,7 @@ export default async function ProfilePage() {
         {/* </div> */}
         <LogOutButton />
       </section>
-      {userDetails.enrolledCourses.length ? (
+      {userDetails?.enrolledCourses?.length ? (
         <section className="col-span-6">
           <div className="flex items-start justify-between rounded-3xl border border-transparent p-4 hover:border-border/25 hover:bg-secondary/25">
             <div className="flex h-max items-start gap-x-8">
