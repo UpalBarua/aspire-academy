@@ -19,7 +19,7 @@ export function CourseCard({
 }: Readonly<TCourse>) {
   return (
     <Link href={`/courses/${_id}`} className="group">
-      <Card className="relative mx-auto max-w-[28rem] border-border/50 bg-card/25 transition-colors duration-300 group-hover:border-border/75 group-hover:bg-card/50">
+      <Card className="relative mx-auto h-full max-w-[28rem] border-border/50 bg-card/25 transition-colors duration-300 group-hover:border-border/75 group-hover:bg-card/50">
         <Image
           src={coverPicture}
           alt={name}

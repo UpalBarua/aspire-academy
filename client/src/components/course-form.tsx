@@ -20,11 +20,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { api, categories } from "@/config";
+import { categories } from "@/config";
 import { uploadImg } from "@/lib/upload-img";
+import { useCreateCourseMutation } from "@/redux/api/baseApi";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 import { Textarea } from "./ui/textarea";
 
@@ -78,6 +80,8 @@ const courseFormSchema = z.object({
 type CourseForm = z.infer<typeof courseFormSchema>;
 
 export function CourseForm() {
+  const [createCourse] = useCreateCourseMutation();
+
   const [category, setCategory] = useState("");
   const [instructor, setInstructor] = useState({});
   const [coverImg, setCoverImg] = useState<File | null>(null);
@@ -124,17 +128,13 @@ export function CourseForm() {
         },
       };
 
-      await fetch(`${api}/courses/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newCourse),
-      }).then((res) => res.json());
+      createCourse(newCourse);
 
       form.reset();
+      toast.success("Course added");
     } catch (error) {
       console.log(`Failed to create new course: ${error}`);
+      toast.error("Something went wrong");
     } finally {
       setIsSubmitting(false);
     }

@@ -7,6 +7,9 @@ async function getAllCourses() {
   try {
     const data = await fetch(
       "https://aspire-academy-server.vercel.app/api/courses",
+      {
+        cache: "no-store",
+      },
     ).then((res) => res.json());
 
     return data.data;

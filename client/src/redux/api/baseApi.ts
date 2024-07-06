@@ -7,6 +7,28 @@ export const baseApi = createApi({
   }),
 
   endpoints: (builder) => ({
+    getCourses: builder.query({
+      query: () => ({
+        url: "/courses",
+        method: "GET",
+      }),
+      providesTags: ["courses"],
+    }),
+    createCourse: builder.mutation({
+      query: (newCourse) => ({
+        url: "/courses",
+        method: "POST",
+        body: newCourse,
+      }),
+      invalidatesTags: ["courses"],
+    }),
+    deleteCourse: builder.mutation({
+      query: (id) => ({
+        url: `/courses/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["courses"],
+    }),
     getHelpDesk: builder.query({
       query: () => ({
         url: "/help-desk",
@@ -133,6 +155,7 @@ export const baseApi = createApi({
     }),
   }),
   tagTypes: [
+    "courses",
     "helpDesk",
     "blog",
     "event",
@@ -159,4 +182,7 @@ export const {
   useGetManagementQuery,
   useCreateManagementMutation,
   useDeleteManagementMutation,
+  useGetCoursesQuery,
+  useDeleteCourseMutation,
+  useCreateCourseMutation,
 } = baseApi;

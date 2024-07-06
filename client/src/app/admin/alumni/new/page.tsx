@@ -5,6 +5,7 @@ import {
   ArrowRight,
   Camera,
   FolderPen,
+  GraduationCap,
   MessageCircleMore,
   X,
 } from "lucide-react";
@@ -14,37 +15,38 @@ import { useForm } from "react-hook-form";
 
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { uploadImg } from "@/lib/upload-img";
-import { useCreateBlogMutation } from "@/redux/api/baseApi";
+import { useCreateAlumniMutation } from "@/redux/api/baseApi";
 import { toast } from "sonner";
 
 type FormData = {
-  title: string;
+  name: string;
+  course: string;
+  batchNo: string;
   image: FileList;
-  details: string;
 };
 
-export default function NewBlogPostPage() {
+export default function NewAlumniPage() {
+  const [createAlumni] = useCreateAlumniMutation();
+
   const [isPublishing, setIsPublishing] = useState(false);
-  const [createBlog] = useCreateBlogMutation();
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (formData: unknown) => {
     try {
       setIsPublishing(true);
 
-      const { image, title, details } = formData as FormData;
+      const { name, course, batchNo, image } = formData as FormData;
       const imageUrl = await uploadImg(image[0]);
 
-      createBlog({
-        title,
-        details,
-        date: new Date(),
+      createAlumni({
+        name: name,
+        course: course,
+        batchNo: batchNo,
         image: imageUrl,
       });
 
-      toast.success("Added blog post.");
+      toast.success("Alumni added.");
       reset();
     } catch {
       console.log("something went wrong");
@@ -56,8 +58,8 @@ export default function NewBlogPostPage() {
   return (
     <section>
       <div className="flex items-center justify-between pb-6">
-        <h2 className="py-4 pb-4 text-3xl font-bold">Add New Post</h2>
-        <Link className={buttonVariants({})} href="/admin/blog">
+        <h2 className="py-4 pb-4 text-3xl font-bold">Add New Alumni</h2>
+        <Link className={buttonVariants({})} href="/admin/alumni">
           <ArrowLeft className="size-5" />
           <span>Go Back</span>
         </Link>
@@ -66,12 +68,23 @@ export default function NewBlogPostPage() {
         <div className="flex flex-col gap-2">
           <label className="flex items-center gap-3 pb-2">
             <FolderPen className="size-5" />
-            <span>Post Title</span>
+            <span>Alumni Name</span>
           </label>
           <Input
-            {...register("title", { required: true })}
+            {...register("name", { required: true })}
             type="text"
-            placeholder="Post Title"
+            placeholder="name"
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="flex items-center gap-3 pb-2">
+            <GraduationCap className="size-5" />
+            <span>Course</span>
+          </label>
+          <Input
+            {...register("course", { required: true })}
+            type="text"
+            placeholder="course"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -88,12 +101,12 @@ export default function NewBlogPostPage() {
         <div className="flex flex-col gap-2">
           <label className="flex items-center gap-3 pb-2">
             <MessageCircleMore className="size-5" />
-            <span>Post Content</span>
+            <span>Batch No</span>
           </label>
-          <Textarea
-            {...register("details", { required: true })}
-            className="min-h-[14rem] resize-none"
-            placeholder="Post Content"
+          <Input
+            {...register("batchNo", { required: true })}
+            type="text"
+            placeholder="Batch No"
           />
         </div>
         <div className="flex items-center justify-end gap-x-2">

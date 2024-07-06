@@ -8,7 +8,6 @@ async function getAllCourses() {
       "https://aspire-academy-server.vercel.app/api/courses",
     ).then((res) => res.json());
 
-    console.log({ data });
     return data.data;
   } catch (error) {
     console.log(error);

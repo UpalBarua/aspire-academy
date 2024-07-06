@@ -3,7 +3,6 @@ import {
   CalendarClock,
   MonitorStop,
   NotebookPen,
-  PersonStanding,
   School,
   SquareGanttChart,
   Users,
@@ -92,17 +91,16 @@ export const adminNavigation = [
     href: "/admin/courses",
     Icon: School,
   },
-  {
-    label: "Students",
-    href: "/admin/students",
-    Icon: Users,
-  },
-  {
-    label: "Mentors",
-    href: "/admin/students",
-    Icon: PersonStanding,
-  },
-
+  // {
+  //   label: "Students",
+  //   href: "/admin/students",
+  //   Icon: Users,
+  // },
+  // {
+  //   label: "Mentors",
+  //   href: "/admin/students",
+  //   Icon: PersonStanding,
+  // },
   {
     label: "Help Desk",
     href: "/admin/help-desk",
@@ -110,22 +108,22 @@ export const adminNavigation = [
   },
   {
     label: "Blog",
-    href: "/admin/all-blog",
+    href: "/admin/blog",
     Icon: NotebookPen,
   },
   {
     label: "Event",
-    href: "/admin/all-event",
+    href: "/admin/events",
     Icon: CalendarClock,
   },
   {
     label: "Testimonial",
-    href: "/admin/all-testimonial",
+    href: "/admin/testimonials",
     Icon: SquareGanttChart,
   },
   {
     label: "Alumni",
-    href: "/admin/all-alumni",
+    href: "/admin/alumni",
     Icon: UsersRound,
   },
   {
