@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import TestimonialCard from "@/components/AdminCard/testimonialCard";
 import { buttonVariants } from "@/components/ui/button";
-import type { TTestimonial } from "@/config/type";
+import type { Testimonial } from "@/types";
 
 export default function AdminTestimonialsPage() {
   const { data, isLoading } = useGetTestimonialQuery("");
@@ -26,7 +26,7 @@ export default function AdminTestimonialsPage() {
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {data.data.map((testimonial: TTestimonial) => (
+          {data.data.map((testimonial: Testimonial) => (
             <TestimonialCard key={testimonial._id} {...testimonial} />
           ))}
         </div>
